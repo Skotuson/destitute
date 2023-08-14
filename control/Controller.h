@@ -5,9 +5,10 @@
 
 class Controller {
     public:
-        void Read ( void );
-        char Peek ( void );
-        char Get  ( void );
+        void   Read ( void );
+        char   Peek ( void );
+        char   Get  ( void );
+        size_t GetBufferSize ( void );
     private:
         std::queue<char> m_Buffer;
 };

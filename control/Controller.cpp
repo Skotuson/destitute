@@ -6,6 +6,7 @@ void Controller::Read ( ) {
     while ( 42 ) {
         char c;
         std::cin >> c;
+        std::cout << GetBufferSize ( ) << std::endl;
         m_Buffer . push ( c );
     }
 }
@@ -23,4 +24,8 @@ char Controller::Get ( void ) {
         return f;
     }
     return '\0';
+}
+
+size_t Controller::GetBufferSize ( void ) {
+    return m_Buffer . size ( );
 }
