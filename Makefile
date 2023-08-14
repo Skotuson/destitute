@@ -7,14 +7,14 @@ all: $(OUTPUT)
 
 compile: $(OUTPUT)
 
-$(OUTPUT): main.o
+$(OUTPUT): main.o control/Controller.o
 	$(LD) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
-	rm -f *.o $(OUTPUT)
+	rm -f *.o */*.o $(OUTPUT)
  
 run: $(OUTPUT)
 	./$(OUTPUT)
