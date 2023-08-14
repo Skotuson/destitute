@@ -3,7 +3,7 @@
 
 class Controller {
     public:
-        
+        void Read ( );
     private:
 };
 
