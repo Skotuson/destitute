@@ -13,5 +13,10 @@ void Level::Load ( const std::string & filename ) {
     while ( std::getline ( ifs, buffer ) ) {
         m_Level . push_back ( std::vector<Tile *> ( ) );
         stripCR ( buffer );
+        
+        for ( size_t i = 0; i < buffer . size ( ); i++ ) {
+            
+        }
+        
     }
 }
