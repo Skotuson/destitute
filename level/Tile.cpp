@@ -7,3 +7,7 @@ Tile::Tile ( char look )
 Action Tile::Interact ( void ) {
     return Action::NOP;
 }
+
+std::ostream & operator << ( std::ostream & os, const Tile   & t ) {
+    return ( os << t . m_Look );
+}
