@@ -9,9 +9,9 @@ int main ( void ) {
     std::thread input ( &Controller::Read, cntrl );
 
     while ( 42 ) {
-        usleep ( 500'000 );
+        std::cout << "A" << std::endl;
         if ( cntrl . Peek ( ) )
-            std::cout << cntrl . Peek ( ) << std::endl;
+            std::cout << cntrl . Get ( ) << std::endl;
         if ( cntrl . Peek ( ) == 'x' ) break;
     }
 

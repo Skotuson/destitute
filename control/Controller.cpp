@@ -1,14 +1,30 @@
+#include <termios.h>
 #include <iostream>
+#include <unistd.h>
+#include <cctype>
+#include <cstdio>
 
 #include "Controller.h"
 
 void Controller::Read ( ) {
+    struct termios oldt, newt;
+    tcgetattr ( STDIN_FILENO, &oldt );
+    
+    newt = oldt;
+    newt . c_lflag &= ~( ICANON | ECHO );
+
+    tcsetattr ( STDIN_FILENO, TCSANOW, &newt );
+
+    char c;
     while ( 42 ) {
-        char c;
-        std::cin >> c;
-        std::cout << GetBufferSize ( ) << std::endl;
-        m_Buffer . push ( c );
+        c = getchar ( );
+        if ( ! isspace ( c ) ) {
+            printf ( "=> %c\n", c );
+            m_Buffer . push ( c );
+        }
     }
+
+    tcsetattr ( STDIN_FILENO, TCSANOW, &oldt );
 }
 
 char Controller::Peek ( void ) {
