@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "Level.h"
+#include "TileFactory.h"
 #include "../utility/Utility.h"
 
 void Level::Load ( const std::string & filename ) {
@@ -14,9 +15,17 @@ void Level::Load ( const std::string & filename ) {
         m_Level . push_back ( std::vector<Tile *> ( ) );
         stripCR ( buffer );
         
-        for ( size_t i = 0; i < buffer . size ( ); i++ ) {
-            
-        }
+        for ( const auto & c : buffer )
+            m_Level[m_Level . size ( ) - 1] . push_back ( TileFactory::CreateTile ( c ) );
         
     }
+}
+
+void Level::Print ( void ) {
+    for ( const auto & row : m_Level ) {
+        for ( const auto & col : row )
+            std::cout << *col;
+        std::cout << std::endl;
+    }
+
 }

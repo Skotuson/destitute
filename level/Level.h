@@ -8,7 +8,8 @@
 
 class Level {
     public:
-        void Load ( const std::string & filename );
+        void Load  ( const std::string & filename );
+        void Print ( void );
     private:
         std::vector<std::vector<Tile *>> m_Level;
 };
