@@ -7,15 +7,13 @@ int main ( void ) {
     Controller cntrl;
     std::thread input ( &Controller::Read, std::ref ( cntrl ) );
 
-    while ( 42 ) {
+    while ( true ) {
         if ( cntrl . Peek ( ) ) {
-            if ( cntrl . Peek ( ) == 'x' ) break;
+            if ( cntrl . Peek ( ) == EXIT_CHAR )
+                break;
             std::cout << cntrl . Get ( ) << std::endl;
         }
     }
-
-    std::cout << "Loop Done" << std::endl;
-    cntrl . Kill ( );
 
     input . join ( );
     return 0;
