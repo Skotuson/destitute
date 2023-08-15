@@ -5,7 +5,7 @@
 
 class TileFactory {
     public:
-        Tile * CreateTile ( char c );
+        static Tile * CreateTile ( char c );
     private:
 };
 
