@@ -1,19 +1,21 @@
 #include <iostream>
-#include <unistd.h>
 #include <thread>
 
 #include "control/Controller.h"
 
 int main ( void ) {
     Controller cntrl;
-    std::thread input ( &Controller::Read, cntrl );
+    std::thread input ( &Controller::Read, std::ref ( cntrl ) );
 
     while ( 42 ) {
-        std::cout << "A" << std::endl;
-        if ( cntrl . Peek ( ) )
+        if ( cntrl . Peek ( ) ) {
+            if ( cntrl . Peek ( ) == 'x' ) break;
             std::cout << cntrl . Get ( ) << std::endl;
-        if ( cntrl . Peek ( ) == 'x' ) break;
+        }
     }
+
+    std::cout << "Loop Done" << std::endl;
+    cntrl . Kill ( );
 
     input . join ( );
     return 0;

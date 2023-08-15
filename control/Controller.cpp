@@ -16,7 +16,7 @@ void Controller::Read ( ) {
     tcsetattr ( STDIN_FILENO, TCSANOW, &newt );
 
     char c;
-    while ( 42 ) {
+    while ( ! m_Quit ) {
         c = getchar ( );
         if ( ! isspace ( c ) ) {
             printf ( "=> %c\n", c );
@@ -44,4 +44,8 @@ char Controller::Get ( void ) {
 
 size_t Controller::GetBufferSize ( void ) {
     return m_Buffer . size ( );
+}
+
+void Controller::Kill ( void ) {
+    m_Quit = true;
 }
