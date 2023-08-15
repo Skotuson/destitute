@@ -8,7 +8,7 @@ int main ( void ) {
     
     Level l;
     l . Load ( "level/examples/vault.txt" );
-
+    l . Print ( );
     //Controller cntrl;
     //std::thread input ( &Controller::Read, std::ref ( cntrl ) );
     //while ( true ) {
