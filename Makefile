@@ -7,7 +7,7 @@ all: $(OUTPUT)
 
 compile: $(OUTPUT)
 
-$(OUTPUT): main.o control/Controller.o draw/Draw.o level/LevelView.o level/Level.o level/Tile.o
+$(OUTPUT): main.o control/Controller.o draw/Draw.o level/LevelView.o level/Level.o level/Tile.o utility/Utility.o
 	$(LD) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp
