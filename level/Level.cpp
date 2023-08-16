@@ -21,6 +21,10 @@ void Level::Load ( const std::string & filename ) {
     }
 }
 
+std::vector<Tile*> & Level::operator [] ( size_t idx ) {
+    return m_Level[idx];
+}
+
 void Level::Print ( void ) {
     for ( const auto & row : m_Level ) {
         for ( const auto & col : row )
