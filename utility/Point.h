@@ -2,9 +2,11 @@
 #define POINT_H
 
 struct Point {
-    Point ( int x, 
-            int y );    
+        Point       ( int  x, 
+                      int  y );    
     
+    int operator [] ( char coord );
+
     int m_X,
         m_Y;
 };
