@@ -1,7 +1,8 @@
 #ifndef RUNINSTANCE_H
 #define RUNINSTANCE_H
 
-#include "Level.h"
+#include "../level/Level.h"
+#include "../entity/Entity.h"
 
 class RunInstance {
     public:

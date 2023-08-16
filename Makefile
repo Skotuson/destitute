@@ -1,6 +1,6 @@
 CXX      = g++
 LD       = g++
-CXXFLAGS = -g -std=c++17 -Wall -pedantic
+CXXFLAGS = -g -std=c++17 -Wall -pedantic -lpthread -pthread
 OUTPUT   = destitute.out
 
 all: $(OUTPUT)
