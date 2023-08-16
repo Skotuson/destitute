@@ -2,6 +2,7 @@
 #include <thread>
 
 #include "control/Controller.h"
+#include "level/LevelView.h"
 #include "level/Level.h"
 
 int main ( void ) {
@@ -19,7 +20,10 @@ int main ( void ) {
 
     Level l;
     l . Load ( "level/examples/vault.txt" );
-    l . Print ( );
+    //l . Print ( );
+
+    std::vector<Entity *> v;
+    LevelView::View ( l, v );
 
     return 0;
 }
