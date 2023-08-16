@@ -21,8 +21,8 @@ void Level::Load ( const std::string & filename ) {
     }
 }
 
-std::vector<Tile*> & Level::operator [] ( size_t idx ) {
-    return m_Level[idx];
+const Layout & Level::GetLayout ( void ) {
+    return m_Level;
 }
 
 void Level::Print ( void ) {
