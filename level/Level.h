@@ -6,12 +6,14 @@
 
 #include "Tile.h"
 
+using Layout = std::vector<std::vector<Tile *>>;
+
 class Level {
     public:
         void Load  ( const std::string & filename );
         void Print ( void );
     private:
-        std::vector<std::vector<Tile *>> m_Level;
+        Layout m_Level;
 };
 
 #endif
