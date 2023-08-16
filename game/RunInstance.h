@@ -6,7 +6,8 @@
 
 class RunInstance {
     public:
-
+        RunInstance ( Level  level, 
+                      Entity player );
     private:
         Level  m_Level;
         Entity m_Player;
