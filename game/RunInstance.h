@@ -6,11 +6,11 @@
 
 class RunInstance {
     public:
-        RunInstance ( Level  level, 
-                      Entity player );
+        RunInstance ( Level  * level, 
+                      Entity * player );
     private:
-        Level  m_Level;
-        Entity m_Player;
+        Level  * m_Level;
+        Entity * m_Player;
 };
 
 #endif
