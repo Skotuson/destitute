@@ -3,12 +3,17 @@ LD       = g++
 CXXFLAGS = -g -std=c++17 -Wall -pedantic -lpthread -pthread
 OUTPUT   = destitute.out
 
+ENTITY_SOURCES = $(wildcard entity/*.cpp)
+LEVEL_SOURCES  = $(wildcard level/*.cpp)
+UTIL_SOURCES   = $(wildcard utility/*.cpp)
+
+
 all: $(OUTPUT)
 
 compile: $(OUTPUT)
 
-$(OUTPUT): main.o control/Controller.o draw/Draw.o level/LevelView.o level/Level.o level/Tile.o level/WallTile.o utility/Utility.o \
-		   level/TileFactory.o game/RunInstance.o entity/Entity.o utility/Point.o entity/EntityFactory.o entity/Human.o
+$(OUTPUT): main.o control/Controller.o draw/Draw.o game/RunInstance.o \
+		   $(ENTITY_SOURCES:.cpp=.o) $(LEVEL_SOURCES:.cpp=.o) $(UTIL_SOURCES:.cpp=.o)
 	$(LD) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp
