@@ -8,7 +8,6 @@ class Human : public Entity {
              Human ( char      look,
                      Point     coords );
 
-        void Move  ( Direction dir ) override;
     private:
 };
 
