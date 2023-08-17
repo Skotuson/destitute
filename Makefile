@@ -7,13 +7,15 @@ ENTITY_SOURCES = $(wildcard entity/*.cpp)
 LEVEL_SOURCES  = $(wildcard level/*.cpp)
 UTIL_SOURCES   = $(wildcard utility/*.cpp)
 
+SOURCES = $(wildcard *.cpp */*.cpp)
+OBJS    = $(SOURCES:.cpp=.o)
+
 
 all: $(OUTPUT)
 
 compile: $(OUTPUT)
 
-$(OUTPUT): main.o control/Controller.o draw/Draw.o game/RunInstance.o \
-		   $(ENTITY_SOURCES:.cpp=.o) $(LEVEL_SOURCES:.cpp=.o) $(UTIL_SOURCES:.cpp=.o)
+$(OUTPUT): $(OBJS)
 	$(LD) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp
