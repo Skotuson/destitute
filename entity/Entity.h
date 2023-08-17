@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include "../utility/Point.h"
-#include "../utility/Utility.h"
+#include "../utility/Direction.h"
 
 class Entity {
     public:
