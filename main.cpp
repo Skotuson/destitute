@@ -20,7 +20,6 @@ int main ( void ) {
 
     Level l;
     l . Load ( "level/examples/vault.txt" );
-    //l . Print ( );
 
     std::vector<Entity *> v;
     LevelView::View ( l, v );
