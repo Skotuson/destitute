@@ -2,7 +2,7 @@
 
 #include "WallTile.h"
 
-Tile * TileFactory::CreateTile ( char c ) {
+Tile * TileFactory::Create ( char c ) {
     switch ( c ) {
         case '#': return new WallTile ( c );
         default: return new Tile ( c );

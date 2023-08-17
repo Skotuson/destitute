@@ -16,7 +16,7 @@ void Level::Load ( const std::string & filename ) {
         stripCR ( buffer );
         
         for ( const auto & c : buffer )
-            m_Level[m_Level . size ( ) - 1] . push_back ( TileFactory::CreateTile ( c ) );
+            m_Level[m_Level . size ( ) - 1] . push_back ( TileFactory::Create ( c ) );
         
     }
 }
