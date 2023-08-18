@@ -7,7 +7,7 @@
 
 Level::~Level ( void ) {
     for ( const auto & row : m_Level ) 
-        for ( Tile * col : row )
+        for ( const auto & col : row )
             delete col;
 }
 
