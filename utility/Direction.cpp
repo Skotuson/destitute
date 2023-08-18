@@ -1,6 +1,6 @@
 #include "Direction.h"
 
-Direction keyToDirection ( char key ) {
+Direction KeyToDirection ( char key ) {
     switch ( key ) {
         case 'w' : return Direction::UP;
         case 'a' : return Direction::LEFT;

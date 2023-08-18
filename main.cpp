@@ -21,7 +21,7 @@ int main ( void ) {
         if ( Controller::Peek ( ) ) {
             if ( Controller::Peek ( ) == EXIT_CHAR )
                 break;
-            v[0] -> Move ( keyToDirection ( Controller::Get ( ) ) );
+            v[0] -> Move ( KeyToDirection ( Controller::Get ( ) ) );
         }
     }
     

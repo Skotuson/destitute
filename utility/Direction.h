@@ -5,6 +5,6 @@ enum class Direction {
     UP, DOWN, LEFT, RIGHT, NOP
 };
 
-Direction keyToDirection ( char key );
+Direction KeyToDirection ( char key );
 
 #endif
