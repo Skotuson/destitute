@@ -4,6 +4,10 @@ Tile::Tile ( char look )
 : m_Look ( look )
 {}
 
+Tile::~Tile ( void )
+{
+}
+
 Action Tile::Interact ( void ) {
     return Action::NOP;
 }

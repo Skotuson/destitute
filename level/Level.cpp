@@ -5,6 +5,12 @@
 #include "TileFactory.h"
 #include "../utility/Utility.h"
 
+Level::~Level ( void ) {
+    for ( const auto & row : m_Level ) 
+        for ( Tile * col : row )
+            delete col;
+}
+
 void Level::Load ( const std::string & filename ) {
     std::ifstream ifs ( filename );
     if ( ifs . fail ( ) )

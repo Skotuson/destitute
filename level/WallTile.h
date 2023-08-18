@@ -6,7 +6,8 @@
 class WallTile : public Tile {
     public:
                WallTile ( char look );
-        Action Interact ( void )      override;
+              ~WallTile ( void );     
+        Action Interact ( void ) override;
     private:
 
 };

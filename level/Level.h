@@ -10,6 +10,7 @@ using Layout = std::vector<std::vector<Tile *>>;
 
 class Level {
     public:
+                      ~Level     ( void );
         void           Load      ( const std::string & filename );
         const Layout & GetLayout ( void );
         void           Print     ( void );

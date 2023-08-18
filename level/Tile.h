@@ -8,6 +8,7 @@ enum class Action { NOP, STOP };
 class Tile {
     public: 
                                Tile        ( char           look );
+        virtual               ~Tile        ( void );
         virtual Action         Interact    ( void );
         friend  std::ostream & operator << ( std::ostream & os, 
                                              const Tile   & t );
