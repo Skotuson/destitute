@@ -8,7 +8,7 @@ void LevelView::View ( Level & level, std::vector<Entity *> & entities ) {
         for ( size_t j = 0; j < layout[i] . size ( ); j++ ) {
             bool occupied = false;
             for ( const auto & e : entities ) {
-                if ( e . m_Coords == { j, i } ) {
+                if ( e -> IsAt ( { i, j } ) ) {
                     std::cout << *e;
                     occupied = true;
                     break;
