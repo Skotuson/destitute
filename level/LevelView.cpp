@@ -8,7 +8,8 @@ void LevelView::View ( Level & level, std::vector<Entity *> & entities ) {
         for ( size_t j = 0; j < layout[i] . size ( ); j++ ) {
             bool occupied = false;
             for ( const auto & e : entities ) {
-                if ( e -> IsAt ( { i, j } ) ) {
+                Point pt ( j, i );
+                if ( e -> IsAt ( pt ) ) {
                     std::cout << *e;
                     occupied = true;
                     break;

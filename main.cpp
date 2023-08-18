@@ -21,7 +21,7 @@ int main ( void ) {
     Level l;
     l . Load ( "level/examples/vault.txt" );
 
-    std::vector<Entity *> v = { new Human ( '&', { 2, 5 } ) };
+    std::vector<Entity *> v = { new Human ( '&', { 7, 5 } ) };
     LevelView::View ( l, v );
 
     return 0;

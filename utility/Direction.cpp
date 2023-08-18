@@ -6,6 +6,6 @@ Direction keyToDirection ( char key ) {
         case 'S' : return Direction::DOWN;
         case 'A' : return Direction::LEFT;
         case 'D' : return Direction::RIGHT;
-        default :  return Direction::NOP;
+        default  : return Direction::NOP;
     }
 }
