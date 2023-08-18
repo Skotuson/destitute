@@ -12,7 +12,7 @@ int main ( void ) {
     Level l;
     l . Load ( "level/examples/vault.txt" );
 
-    std::vector<Entity *> v = { new Human ( '&', { 7, 5 } ) };
+    std::vector<Entity *> v = { new Human ( '&', { 7, 4 } ) };
     
     std::thread input ( Controller::Read );
     while ( true ) {
