@@ -9,6 +9,10 @@ void Entity::Move ( Direction dir ) {
     
 }
 
+bool Entity::IsAt ( Point pt ) {
+    return m_Coords == pt;
+}
+
 std::ostream & operator << ( std::ostream & os, const Entity & e ) {
     return os << e . m_Look;
 }

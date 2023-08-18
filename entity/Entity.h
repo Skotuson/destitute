@@ -1,6 +1,8 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include <ostream>
+
 #include "../utility/Point.h"
 #include "../utility/Direction.h"
 
@@ -10,6 +12,8 @@ class Entity {
                                             Point          coords );
                         
                void           Move        ( Direction      dir );
+               
+               bool           IsAt        ( Point          pt );
 
         friend std::ostream & operator << ( std::ostream & os,
                                             const Entity & e );
