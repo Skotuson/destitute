@@ -1,7 +1,7 @@
 #include "WallTile.h"
 
-WallTile::WallTile ( char look )
-: Tile ( look )
+WallTile::WallTile ( char look, Color color )
+: Tile ( look, color )
 {}
 
 WallTile::~WallTile ( void )

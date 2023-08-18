@@ -5,7 +5,8 @@
 
 class WallTile : public Tile {
     public:
-               WallTile ( char look );
+               WallTile ( char  look, 
+                          Color color = Draw::COLOR_BLUE );
               ~WallTile ( void );     
         Action Interact ( void ) override;
     private:

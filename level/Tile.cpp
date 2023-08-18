@@ -1,7 +1,8 @@
 #include "Tile.h"
 
-Tile::Tile ( char look )
-: m_Look ( look )
+Tile::Tile ( char look, Color color )
+: m_Look  ( look ),
+  m_Color ( color )
 {}
 
 Tile::~Tile ( void )
@@ -13,5 +14,5 @@ Action Tile::Interact ( void ) {
 }
 
 std::ostream & operator << ( std::ostream & os, const Tile   & t ) {
-    return ( os << t . m_Look );
+    return ( os << t . m_Color << t . m_Look << Draw::COLOR_DEFAULT );
 }

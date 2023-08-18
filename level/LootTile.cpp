@@ -1,7 +1,7 @@
 #include "LootTile.h"
 
-LootTile::LootTile ( char look )
-: Tile ( look )
+LootTile::LootTile ( char look, Color color )
+: Tile ( look, color )
 {}
 
 LootTile::~LootTile ( void )
