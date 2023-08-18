@@ -4,8 +4,7 @@
 #include <ostream>
 
 #include "../draw/Draw.h"
-
-enum class Action { NOP, STOP, LOOT };
+#include "../game/Action.h"
 
 class Tile {
     public: 
