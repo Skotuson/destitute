@@ -27,6 +27,10 @@ Point Entity::Move ( Direction dir ) {
     }
 }
 
+void Entity::Interact ( Action action ) {
+    
+}
+
 bool Entity::IsAt ( Point pt ) {
     return m_Coords == pt;
 }
