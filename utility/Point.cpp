@@ -7,6 +7,10 @@ Point::Point ( int x, int y )
   m_Y ( y )
 {}
 
+bool Point::operator == ( Point pt ) {
+    return m_X == pt . m_X && m_Y == pt . m_Y;
+}
+
 int Point::operator [] ( char coord ) {
     switch ( coord ) {
         case 'x':
