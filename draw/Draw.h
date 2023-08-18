@@ -1,7 +1,7 @@
 #ifndef DRAW_H
 #define DRAW_H
 
-
+using Color = std::string;
 
 class Draw {
     public:
