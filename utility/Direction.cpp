@@ -9,3 +9,19 @@ Direction KeyToDirection ( char key ) {
         default  : return Direction::NOP;
     }
 }
+
+Point GetDirectionVector ( Direction dir ) {
+    switch ( dir ) {
+        case Direction::UP:
+            return { 0, -1 };
+        case Direction::DOWN:
+            return { 0, 1 };
+        case Direction::LEFT:
+            return { -1, 0 };
+        case Direction::RIGHT:
+            return { 1, 0 };
+        case Direction::NOP:
+        default:
+            return { 0, 0 };
+    }
+}

@@ -21,8 +21,7 @@ int main ( void ) {
         if ( Controller::Peek ( ) ) {
             if ( Controller::Peek ( ) == EXIT_CHAR )
                 break;
-            //TODO: add method for getting vector and checking the tile interact
-            Point movement = v[0] -> Move ( KeyToDirection ( Controller::Get ( ) ) );
+            v[0] -> Move ( KeyToDirection ( Controller::Get ( ) ) );
         }
     }
     
