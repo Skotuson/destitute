@@ -8,3 +8,7 @@ Entity::Entity ( char look, Point coords = { 0, 0 } )
 void Entity::Move ( Direction dir ) {
     
 }
+
+std::ostream & operator << ( std::ostream & os, const Entity & e ) {
+    return os << e . m_Look;
+}

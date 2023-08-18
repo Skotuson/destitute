@@ -6,10 +6,14 @@
 
 class Entity {
     public:
-         Entity ( char      look,
-                  Point     coords );
-        
-    void Move   ( Direction dir );
+                              Entity      ( char           look,
+                                            Point          coords );
+                        
+               void           Move        ( Direction      dir );
+
+        friend std::ostream & operator << ( std::ostream & os,
+                                            const Entity & e );
+
     private:
         char  m_Look;
         Point m_Coords;
