@@ -3,26 +3,31 @@
 
 #include "control/Controller.h"
 #include "level/LevelView.h"
-#include "level/Level.h"
 #include "entity/Human.h"
+#include "level/Level.h"
+#include "draw/Draw.h"
 
 int main ( void ) {
-    //std::thread input ( Controller::Read );
-    //while ( true ) {
-    //    if ( Controller::Peek ( ) ) {
-    //        if ( Controller::Peek ( ) == EXIT_CHAR )
-    //            break;
-    //        std::cout << Controller::Get ( ) << std::endl;
-    //    }
-    //}
-    //
-    //input . join ( );
-
+    std::cout << Draw::CLEAR_SCREEN << Draw::HIDE_CURSOR;
     Level l;
     l . Load ( "level/examples/vault.txt" );
 
     std::vector<Entity *> v = { new Human ( '&', { 7, 5 } ) };
-    LevelView::View ( l, v );
+    
+    std::thread input ( Controller::Read );
+    while ( true ) {
+        std::cout << Draw::RETURN_CURSOR;
+        LevelView::View ( l, v );
+        if ( Controller::Peek ( ) ) {
+            if ( Controller::Peek ( ) == EXIT_CHAR )
+                break;
+            v[0] -> Move ( keyToDirection ( Controller::Get ( ) ) );
+        }
+    }
+    
+    input . join ( );
+
+    std::cout << Draw::SHOW_CURSOR;
 
     return 0;
 }

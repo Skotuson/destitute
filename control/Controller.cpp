@@ -19,7 +19,7 @@ void Controller::Read ( ) {
     while ( true ) {
         c = getchar ( );
         if ( ! isspace ( c ) ) {
-            printf ( "=> %c\n", c );
+            //printf ( "=> %c\n", c );
             m_Buffer . push ( c );
             if ( c == EXIT_CHAR ) break;
         }
