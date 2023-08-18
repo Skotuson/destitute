@@ -9,6 +9,7 @@ class Draw {
                                         CLEAR_SCREEN    = "\033[2J",
                                         SHOW_CURSOR     = "\033[?25h",
                                         HIDE_CURSOR     = "\033[?25l",
+                                        COLOR_DEFAULT   = "\033[0m",
                                         COLOR_BLACK     = "\033[0;30m",
                                         COLOR_RED       = "\033[0;31m",
                                         COLOR_GREEN     = "\033[0;32m",
