@@ -3,7 +3,7 @@
 
 #include <ostream>
 
-enum class Action { NOP, STOP };
+enum class Action { NOP, STOP, LOOT };
 
 class Tile {
     public: 
