@@ -4,6 +4,7 @@
 #include "control/Controller.h"
 #include "level/LevelView.h"
 #include "level/Level.h"
+#include "entity/Human.h"
 
 int main ( void ) {
     //std::thread input ( Controller::Read );
@@ -20,7 +21,7 @@ int main ( void ) {
     Level l;
     l . Load ( "level/examples/vault.txt" );
 
-    std::vector<Entity *> v;
+    std::vector<Entity *> v = { new Human ( '&', { 2, 5 } ) };
     LevelView::View ( l, v );
 
     return 0;
