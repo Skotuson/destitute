@@ -7,12 +7,12 @@ const char EXIT_CHAR = 'x';
 
 class Controller {
     public:
-        void   Read          ( void );
-        char   Peek          ( void );
-        char   Get           ( void );
-        size_t GetBufferSize ( void );
+        static void   Read          ( void );
+        static char   Peek          ( void );
+        static char   Get           ( void );
+        static size_t GetBufferSize ( void );
     private:
-        std::queue<char> m_Buffer;
+        inline static std::queue<char> m_Buffer;
 };
 
 #endif
