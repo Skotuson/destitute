@@ -30,6 +30,10 @@ const Layout & Level::GetLayout ( void ) {
     return m_Level;
 }
 
+Tile * Level::GetTile ( Point pt ) {
+    return m_Level[pt['y']][pt['x']];
+}
+
 void Level::Print ( void ) {
     for ( const auto & row : m_Level ) {
         for ( const auto & col : row )
