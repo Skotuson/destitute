@@ -12,7 +12,7 @@ class Entity {
                               Entity      ( char           look,
                                             Point          coords );
                         
-               void           Move        ( Direction      dir );
+               Point          Move        ( Direction      dir );
                
                void           Interact    ( Action         action );
 
