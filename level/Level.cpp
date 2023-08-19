@@ -30,7 +30,7 @@ const Layout & Level::GetLayout ( void ) {
     return m_Level;
 }
 
-Tile * Level::GetTile ( Point pt ) {
+const Tile * Level::GetTile ( Point pt ) {
     return m_Level[pt['y']][pt['x']];
 }
 

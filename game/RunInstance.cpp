@@ -16,7 +16,10 @@ void RunInstance::Run ( void ) {
         if ( Controller::Peek ( ) ) {
             if ( Controller::Peek ( ) == EXIT_CHAR )
                 break;
-            m_Entities[0] -> Move ( KeyToDirection ( Controller::Get ( ) ) );
+            Direction dir = KeyToDirection ( Controller::Get ( ) );
+            Point futureCoords = Translate ( m_Entities[0] -> GetCoords ( ), GetDirectionVector ( dir ) );
+            if ( m_Level -> GetTile ( futureCoords ) -> Interact ( ) != Action::STOP )
+                m_Entities[0] -> Move ( dir );
         }
     }
 }

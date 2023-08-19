@@ -12,10 +12,10 @@ class Entity {
                               Entity      ( char           look,
                                             Point          coords );
                         
-               Point          Move        ( Direction      dir );
-               
+               void           Move        ( Direction      dir );
+               Point          GetCoords   ( void );
                void           Interact    ( Action         action );
-
+                
                bool           IsAt        ( Point          pt );
 
         friend std::ostream & operator << ( std::ostream & os,

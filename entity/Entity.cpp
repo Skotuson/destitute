@@ -7,26 +7,28 @@ Entity::Entity ( char look, Point coords = { 0, 0 } )
   m_Coords ( coords )
 {}
 
-Point Entity::Move ( Direction dir ) {
-    Point coords ( 0, 0 );
+void Entity::Move ( Direction dir ) {
     switch ( dir ) {
         case Direction::UP:
-            coords = { m_Coords['x'], m_Coords['y'] - 1 };
+            m_Coords = { m_Coords['x'], m_Coords['y'] - 1 };
             break;
         case Direction::DOWN:
-            coords = { m_Coords['x'], m_Coords['y'] + 1 };
+            m_Coords = { m_Coords['x'], m_Coords['y'] + 1 };
             break;
         case Direction::LEFT:
-            coords = { m_Coords['x'] - 1, m_Coords['y'] };
+            m_Coords = { m_Coords['x'] - 1, m_Coords['y'] };
             break;
         case Direction::RIGHT:
-            coords = { m_Coords['x'] + 1, m_Coords['y'] };
+            m_Coords = { m_Coords['x'] + 1, m_Coords['y'] };
             break;
         case Direction::NOP:
         default:
-            return m_Coords;
+            break;
     }
-    return coords;
+}
+
+Point Entity::GetCoords ( void ) {
+    return m_Coords;
 }
 
 void Entity::Interact ( Action action ) {
