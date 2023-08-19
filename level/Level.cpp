@@ -34,6 +34,13 @@ Tile * Level::GetTile ( Point pt ) {
     return m_Level[pt['y']][pt['x']];
 }
 
+void Level::EmptyTile ( Point pt ) {
+    //Empty Tile
+    Tile * t = TileFactory::Create ( );
+    delete m_Level[pt['y']][pt['x']];
+    m_Level[pt['y']][pt['x']] = t;
+}
+
 void Level::Print ( void ) {
     for ( const auto & row : m_Level ) {
         for ( const auto & col : row )

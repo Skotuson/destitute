@@ -12,6 +12,7 @@ RunInstance::RunInstance ( Level * level, const std::vector<Entity *> & entities
 
 void RunInstance::Run ( void ) {
     while ( true ) {
+        HandleInteraction ( );
         std::cout << Draw::RETURN_CURSOR;
         LevelView::View ( *m_Level, m_Entities );
         std::cout << "Balance: " << m_Balance << std::endl;
@@ -30,6 +31,8 @@ void RunInstance::HandleInteraction ( void ) {
     Action action = m_Level -> GetTile ( m_Player -> GetCoords ( ) ) -> Interact ( );
     switch ( action ) {
         case Action::LOOT:
+            m_Balance += 100;
+            m_Level -> EmptyTile ( m_Player -> GetCoords ( ) );
             break;
         case Action::STOP:
         case Action::NOP:
