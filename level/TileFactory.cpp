@@ -2,6 +2,7 @@
 
 #include "WallTile.h"
 #include "LootTile.h"
+#include "DoorTile.h"
 
 Tile * TileFactory::Create ( char c ) {
     switch ( c ) {
