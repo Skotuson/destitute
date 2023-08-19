@@ -22,7 +22,9 @@ class Draw {
                                         COLOR_B_YELLOW  = "\033[0;93m",
                                         COLOR_B_BLUE    = "\033[0;94m",
                                         COLOR_B_MAGENTA = "\033[0;95m",
-                                        COLOR_B_CYAN    = "\033[0;96m";
+                                        COLOR_B_CYAN    = "\033[0;96m",
+                                        //8-bit
+                                        COLOR_BROWN   = "\033[38;5;130m";
 };
 
 #endif
