@@ -27,5 +27,13 @@ void RunInstance::Run ( void ) {
 }
 
 void RunInstance::HandleInteraction ( void ) {
-
+    Action action = m_Level -> GetTile ( m_Player -> GetCoords ( ) ) -> Interact ( );
+    switch ( action ) {
+        case Action::LOOT:
+            break;
+        case Action::STOP:
+        case Action::NOP:
+        default:
+            break;
+    }
 }
