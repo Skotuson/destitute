@@ -6,8 +6,10 @@
 
 class RunInstance {
     public:
-        RunInstance ( Level                 * level, 
-                      std::vector<Entity *> & entities );
+             RunInstance ( Level                       * level, 
+                           const std::vector<Entity *> & entities );
+
+        void Run         ( void );
     private:
         Level                 * m_Level;
         Entity                * m_Player;
