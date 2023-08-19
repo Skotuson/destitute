@@ -25,3 +25,7 @@ Point GetDirectionVector ( Direction dir ) {
             return { 0, 0 };
     }
 }
+
+Point Translate ( Point pt, Point translation ) {
+    return { pt['x'] + translation['x'], pt['y'] + translation['y'] };
+}

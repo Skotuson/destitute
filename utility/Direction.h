@@ -11,4 +11,7 @@ Direction KeyToDirection     ( char      key );
 
 Point     GetDirectionVector ( Direction dir );
 
+Point     Translate          ( Point     pt, 
+                               Point     translation );
+
 #endif
