@@ -5,8 +5,8 @@
 
 #include "../level/Room.h"
 
-const size_t MAX_ROOM_SIZE = 15,
-             MIN_ROOM_SIZE = 5;
+const size_t MAX_ROOM_SIZE = 25,
+             MIN_ROOM_SIZE = 15;
 
 class RoomGenerator {
     public:
