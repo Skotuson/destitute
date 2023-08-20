@@ -2,6 +2,7 @@
 #include <thread>
 
 #include "control/Controller.h"
+#include "gen/RoomGenerator.h"
 #include "game/RunInstance.h"
 #include "entity/Human.h"
 #include "level/Level.h"
@@ -23,6 +24,8 @@ int main ( void ) {
     delete v[0];
     delete l;
     std::cout << Draw::SHOW_CURSOR;
+
+    RoomGenerator::Generate ( );
 
     return 0;
 }
