@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "Tile.h"
+#include "Room.h"
 #include "TileFactory.h"
 #include "../utility/Point.h"
 
@@ -20,6 +21,7 @@ class Level {
         void           Print     ( void );
     private:
         Layout m_Level;
+
 };
 
 #endif
