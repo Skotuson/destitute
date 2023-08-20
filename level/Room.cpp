@@ -18,3 +18,7 @@ void Room::Load ( const std::string & filename ) {
             m_Layout[m_Layout . size ( ) - 1] . push_back ( TileFactory::Create ( c ) );
     }
 }
+
+Tile * Room::GetTile ( Point & pt ) {
+    return m_Layout[pt['y']][pt['x']];
+}
