@@ -16,7 +16,7 @@ Room * RoomGenerator::Generate ( void ) {
         for ( size_t j = 0; j < n * 2; j++ ) {
             if (    ! j || ! i 
                  || j == ( n * 2 - 1 ) || i == ( n - 1 ) 
-                 || ( rand ( ) % n + 1 ) == i ) 
+                 || ( rand ( ) % n + 1 ) == i )
                 m_Room[i] . push_back ( TileFactory::Create ( '#' ) );
             else m_Room[i] . push_back ( TileFactory::Create ( ' ' ) );
         }
