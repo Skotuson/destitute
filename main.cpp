@@ -11,8 +11,7 @@
 int main ( void ) {
     std::cout << Draw::CLEAR_SCREEN << Draw::RETURN_CURSOR << Draw::HIDE_CURSOR;
     
-    Level * l = new Level ( );
-    l -> Load ( "level/examples/vault.txt" );
+    Level * l = new Level ( RoomGenerator::Generate ( ) );
     std::vector<Entity *> v = { new Human ( '&', { 7, 4 } ) };
     
     std::thread input ( Controller::Read );
@@ -23,10 +22,6 @@ int main ( void ) {
     delete v[0];
     delete l;
     std::cout << Draw::SHOW_CURSOR;
-
-    //Room * r = RoomGenerator::Generate ( );
-    //r -> Print ( );
-    //delete r;
 
     return 0;
 }
