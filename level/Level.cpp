@@ -47,5 +47,4 @@ void Level::Print ( void ) {
             std::cout << *col;
         std::cout << std::endl;
     }
-
 }

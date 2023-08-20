@@ -1,8 +1,13 @@
+#include <iostream>
 #include <fstream>
 
 #include "Room.h"
 #include "../utility/Utility.h"
 #include "../level/TileFactory.h"
+
+Room::Room ( const Layout & layout )
+: m_Layout ( std::move ( layout ) )
+{}
 
 void Room::Load ( const std::string & filename ) {
     std::ifstream ifs ( filename );
@@ -21,4 +26,12 @@ void Room::Load ( const std::string & filename ) {
 
 Tile * Room::GetTile ( Point & pt ) {
     return m_Layout[pt['y']][pt['x']];
+}
+
+void Room::Print ( void ) {
+    for ( const auto & row : m_Layout ) {
+        for ( const auto & col : row )
+            std::cout << *col;
+        std::cout << std::endl;
+    }
 }
