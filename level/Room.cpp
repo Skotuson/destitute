@@ -9,6 +9,12 @@ Room::Room ( const Layout & layout )
 : m_Layout ( std::move ( layout ) )
 {}
 
+Room::~Room ( void ) {
+    for ( const auto & row : m_Layout ) 
+        for ( const auto & col : row )
+            delete col;
+}
+
 void Room::Load ( const std::string & filename ) {
     std::ifstream ifs ( filename );
     if ( ifs . fail ( ) )
