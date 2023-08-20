@@ -25,7 +25,9 @@ int main ( void ) {
     delete l;
     std::cout << Draw::SHOW_CURSOR;
 
-    RoomGenerator::Generate ( );
+    Room * r = RoomGenerator::Generate ( );
+
+    delete r;
 
     return 0;
 }
