@@ -3,25 +3,23 @@
 #include <iostream>
 #include <vector>
 
+#include "../level/TileFactory.h"
+
 Room * RoomGenerator::Generate ( void ) {
-    std::vector<std::vector<int>> m_Room;
+    std::vector<std::vector<Tile*>> m_Room;
     srand ( time ( nullptr ) );
     size_t n = rand ( ) % MAX_ROOM_SIZE + MIN_ROOM_SIZE;
+    size_t n_half = n / 2;
 
     for ( size_t i = 0; i < n; i++ ) {
-        m_Room . push_back ( std::vector<int> ( ) );
+        m_Room . push_back ( std::vector<Tile*> ( ) );
         for ( size_t j = 0; j < n; j++ ) {
-            if ( ! j || ! i || j == ( n - 1 ) || i == ( n - 1 ) ) 
-                m_Room[i] . push_back ( 0 );
-            else m_Room[i] . push_back ( rand ( ) % ( n / 2 ) );
+            if (    ! j || ! i 
+                 || j == ( n - 1 ) || i == ( n - 1 ) 
+                 || ( rand ( ) % n_half ) < i ) 
+                m_Room[i] . push_back ( TileFactory::Create ( '#' ) );
         }
     }
 
-    //for ( const auto & row : m_Room ) {
-    //    for ( const auto & col : row )
-    //        std::cout << col << " ";
-    //    std::cout << std::endl; 
-    //}
-
-    return nullptr;
+    return new Room ( m_Room );
 }

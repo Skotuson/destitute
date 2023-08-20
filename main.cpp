@@ -27,6 +27,8 @@ int main ( void ) {
 
     Room * r = RoomGenerator::Generate ( );
 
+    r -> Print ( );
+
     delete r;
 
     return 0;
