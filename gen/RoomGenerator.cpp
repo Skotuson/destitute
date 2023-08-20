@@ -9,14 +9,13 @@ Room * RoomGenerator::Generate ( void ) {
     std::vector<std::vector<Tile*>> m_Room;
     srand ( time ( nullptr ) );
     size_t n = rand ( ) % MAX_ROOM_SIZE + MIN_ROOM_SIZE;
-    size_t n_half = n / 2;
 
     for ( size_t i = 0; i < n; i++ ) {
         m_Room . push_back ( std::vector<Tile*> ( ) );
-        for ( size_t j = 0; j < n; j++ ) {
+        for ( size_t j = 0; j < n * 2; j++ ) {
             if (    ! j || ! i 
-                 || j == ( n - 1 ) || i == ( n - 1 ) 
-                 || ( rand ( ) % n_half ) == i ) 
+                 || j == ( n * 2 - 1 ) || i == ( n - 1 ) 
+                 || ( rand ( ) % n ) == i ) 
                 m_Room[i] . push_back ( TileFactory::Create ( '#' ) );
             else m_Room[i] . push_back ( TileFactory::Create ( ' ' ) );
         }
