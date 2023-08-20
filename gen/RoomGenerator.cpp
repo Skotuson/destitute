@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-void RoomGenerator::Generate ( void ) {
+Room * RoomGenerator::Generate ( void ) {
     std::vector<std::vector<int>> m_Room;
     srand ( time ( nullptr ) );
     size_t n = rand ( ) % MAX_ROOM_SIZE + MIN_ROOM_SIZE;
@@ -22,4 +22,6 @@ void RoomGenerator::Generate ( void ) {
     //        std::cout << col << " ";
     //    std::cout << std::endl; 
     //}
+
+    return nullptr;
 }
