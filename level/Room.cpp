@@ -30,8 +30,19 @@ void Room::Load ( const std::string & filename ) {
     }
 }
 
-Tile * Room::GetTile ( Point & pt ) {
+const Layout & Room::GetLayout ( void ) {
+    return m_Layout;
+}
+
+Tile * Room::GetTile ( Point pt ) {
     return m_Layout[pt['y']][pt['x']];
+}
+
+void Room::EmptyTile ( Point pt ) {
+    //Empty Tile
+    Tile * t = TileFactory::Create ( );
+    delete m_Layout[pt['y']][pt['x']];
+    m_Layout[pt['y']][pt['x']] = t;
 }
 
 void Room::Print ( void ) {
