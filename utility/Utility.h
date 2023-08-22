@@ -3,6 +3,8 @@
 
 #include <string>
 
-void stripCR ( std::string & str );
+void stripCR      ( std::string & str );
+int  RandomNumber ( int           lo, 
+                    int           hi );
 
 #endif
