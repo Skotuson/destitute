@@ -16,3 +16,7 @@ Action DoorTile::Interact ( void ) {
 Direction DoorTile::GetDir ( void ) {
     return m_Dir;
 }
+
+void DoorTile::ReverseDir ( void ) {
+    m_Dir = GetOppositeDirection ( m_Dir );
+}
