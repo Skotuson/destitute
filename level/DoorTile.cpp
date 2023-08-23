@@ -12,3 +12,7 @@ DoorTile::~DoorTile ( void )
 Action DoorTile::Interact ( void ) {
     return Action::DOOR;
 }
+
+Direction DoorTile::GetDir ( void ) {
+    return m_Dir;
+}

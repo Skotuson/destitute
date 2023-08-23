@@ -6,11 +6,12 @@
 
 class DoorTile : public Tile {
     public:
-               DoorTile ( char      look,
-                          Color     color = Draw::COLOR_BROWN,
-                          Direction dir   = Direction::NOP );
-              ~DoorTile ( void );
-        Action Interact ( void ) override;
+                  DoorTile ( char      look,
+                             Color     color = Draw::COLOR_BROWN,
+                             Direction dir   = Direction::NOP );
+                 ~DoorTile ( void );
+        Action    Interact ( void ) override;
+        Direction GetDir   ( void );
     private:
         Direction m_Dir;
 
