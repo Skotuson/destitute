@@ -10,6 +10,22 @@ Direction KeyToDirection ( char key ) {
     }
 }
 
+Direction GetOppositeDirection ( Direction dir ) {
+    switch ( dir ) {
+        case Direction::UP:
+            return Direction::DOWN;
+        case Direction::DOWN:
+            return Direction::UP;
+        case Direction::LEFT:
+            return Direction::RIGHT;
+        case Direction::RIGHT:
+            return Direction::LEFT;
+        case Direction::NOP:
+        default:
+            return dir;
+        }
+}
+
 Point GetDirectionVector ( Direction dir ) {
     switch ( dir ) {
         case Direction::UP:

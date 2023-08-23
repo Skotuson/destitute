@@ -7,11 +7,13 @@ enum class Direction {
     UP, DOWN, LEFT, RIGHT, NOP
 };
 
-Direction KeyToDirection     ( char      key );
+Direction KeyToDirection       ( char      key );
 
-Point     GetDirectionVector ( Direction dir );
+Direction GetOppositeDirection ( Direction dir );
 
-Point     Translate          ( Point     pt, 
-                               Point     translation );
+Point     GetDirectionVector   ( Direction dir );
+
+Point     Translate            ( Point     pt, 
+                                 Point     translation );
 
 #endif
