@@ -18,6 +18,9 @@ Room * RoomGenerator::GenerateRoom ( void ) {
     int rows = rand ( ) % MAX_ROOM_SIZE + MIN_ROOM_SIZE;
     int cols = rows * 2;
 
+    //Generate doors
+    /*implement*/
+
     //Generate layout
     for ( int i = 0; i < rows; i++ ) {
         m_Room . push_back ( std::vector<Tile *> ( ) );
@@ -26,9 +29,9 @@ Room * RoomGenerator::GenerateRoom ( void ) {
             if (    ! j || ! i 
                  || j == ( cols - 1 ) || i == ( rows - 1 ) 
                  || RandomNumber ( 1, rows ) == i ) 
-                 {
-                    m_Room[i] . push_back ( TileFactory::Create ( '#' ) );
-                 }
+            {
+                m_Room[i] . push_back ( TileFactory::Create ( '#' ) );
+            }
             else m_Room[i] . push_back ( TileFactory::Create ( ' ' ) );
         }
     }
