@@ -1,14 +1,14 @@
 #ifndef ROOM_H
 #define ROOM_H
 
+#include <map>
 #include <vector>
 
 #include "Tile.h"
 #include "../utility/Point.h"
+#include "../utility/Direction.h"
 
 using Layout = std::vector<std::vector<Tile *>>;
-
-const int ADJACENT_ROOMS = 4;
 
 class Room {
     public:
@@ -20,8 +20,8 @@ class Room {
         void           EmptyTile ( Point               pt );
         void           Print     ( void );
     private:
-        Layout   m_Layout;
-        Room   * m_Adjacent[ADJACENT_ROOMS];
+        Layout                      m_Layout;
+        std::map<Direction, Room *> m_AdjacentRooms;
     
 };
 
