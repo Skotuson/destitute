@@ -5,7 +5,7 @@
 
 #include "../level/TileFactory.h"
 
-Room * RoomGenerator::Generate ( void ) {
+Room * RoomGenerator::GenerateRoom ( void ) {
     Layout m_Room;
     srand ( time ( nullptr ) );
     size_t n = rand ( ) % MAX_ROOM_SIZE + MIN_ROOM_SIZE;
