@@ -15,6 +15,7 @@ const size_t MAX_ROOM_SIZE = 20,
 
 class RoomGenerator {
     public:
+        static Room * Generate     ( void );
         static Room * GenerateRoom ( void );
     private:
         inline static std::stack<RoomConfig> m_ToProcess;

@@ -5,6 +5,10 @@
 
 #include "../level/TileFactory.h"
 
+Room * RoomGenerator::Generate ( void ) {
+        
+}
+
 Room * RoomGenerator::GenerateRoom ( void ) {
     Layout m_Room;
     srand ( time ( nullptr ) );
