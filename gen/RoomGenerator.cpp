@@ -12,7 +12,9 @@ Room * RoomGenerator::Generate ( void ) {
 
 Room * RoomGenerator::GenerateRoom ( void ) {
     Layout m_Room;
+    //Seed the PRNG
     srand ( time ( nullptr ) );
+    //Generate dimensions
     int n = rand ( ) % MAX_ROOM_SIZE + MIN_ROOM_SIZE;
 
     //Generate layout
