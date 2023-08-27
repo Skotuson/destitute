@@ -29,10 +29,10 @@ Room * RoomGenerator::GenerateRoom ( void ) {
         }
     
     //lambda function
-    auto HasDoorsAt = []( const std::map<Direction,Point> & doors, const Point & pt ) {
+    auto GetDoorsDir = []( const std::map<Direction,Point> & doors, const Point & pt ) {
         for ( const auto & d : doors )
-            if ( d . second == pt ) return true;
-        return false;
+            if ( d . second == pt ) return d . first;
+        return Direction::NOP;
     };
 
     //Generate layout
@@ -44,9 +44,11 @@ Room * RoomGenerator::GenerateRoom ( void ) {
                  || j == ( cols - 1 ) || i == ( rows - 1 ) 
                  || RandomNumber ( 1, rows ) == i ) 
             {
-                if ( HasDoorsAt ( doors, { j, i } ) ) {
-                    m_Room[i] . push_back ( TileFactory::Create ( '|' ) );
-                }
+                Direction dir = GetDoorsDir ( doors, { j, i } );
+                if ( dir == Direction::UP || dir == Direction::DOWN ) 
+                    m_Room[i] . push_back ( TileFactory::Create ( '-', dir ) );
+                else if ( dir == Direction::LEFT || dir == Direction::RIGHT )
+                    m_Room[i] . push_back ( TileFactory::Create ( '|', dir ) );
                 else m_Room[i] . push_back ( TileFactory::Create ( '#' ) );
             }
             else m_Room[i] . push_back ( TileFactory::Create ( ' ' ) );
