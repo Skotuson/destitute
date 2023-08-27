@@ -16,7 +16,9 @@ class RoomGenerator {
         static Room * Generate      ( void );
         static Room * GenerateRoom  ( void );
     private:
-        static Point  GetRandomDoor ( Direction dir );
+        static Point  GetRandomDoor ( int       rows, 
+                                      int       cols, 
+                                      Direction dir );
         inline static size_t m_GeneratedRooms = 0;
 
 };
