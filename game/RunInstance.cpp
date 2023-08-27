@@ -34,6 +34,10 @@ void RunInstance::HandleInteraction ( void ) {
             m_Balance += 100;
             m_Level -> EmptyTile ( m_Player -> GetCoords ( ) );
             break;
+        case Action::DOOR_UP:
+        case Action::DOOR_DOWN:
+        case Action::DOOR_LEFT:
+        case Action::DOOR_RIGHT:
         case Action::STOP:
         case Action::NOP:
         default:
