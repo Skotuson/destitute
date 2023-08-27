@@ -34,6 +34,10 @@ const Layout & Room::GetLayout ( void ) {
     return m_Layout;
 }
 
+void Room::AddAdjacent ( Room * adj, Direction dir ) {
+    m_AdjacentRooms[dir] = adj;
+}
+
 Room * Room::GetAdjacent ( Direction dir ) {
     return m_AdjacentRooms[dir];
 }
