@@ -7,8 +7,14 @@ Point::Point ( int x, int y )
   m_Y ( y )
 {}
 
-bool Point::operator == ( Point pt ) {
-    return m_X == pt . m_X && m_Y == pt . m_Y;
+bool Point::operator < ( const Point pt ) const {
+    if ( m_X == pt . m_X )
+        return m_Y < pt . m_Y;
+    return m_X < pt . m_X;
+}
+
+bool Point::operator == ( const Point pt ) const {
+    return ! ( *this < pt ) && ! ( pt < * this );
 }
 
 int Point::operator [] ( char coord ) {
