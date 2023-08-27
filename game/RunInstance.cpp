@@ -31,6 +31,7 @@ void RunInstance::HandleInteraction ( void ) {
     Action action = m_Level -> GetTile ( m_Player -> GetCoords ( ) ) -> Interact ( );
     switch ( action ) {
         case Action::LOOT:
+            //TODO: Remove hardcoded
             m_Balance += 100;
             m_Level -> EmptyTile ( m_Player -> GetCoords ( ) );
             break;
