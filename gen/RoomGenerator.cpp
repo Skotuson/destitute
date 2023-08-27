@@ -23,7 +23,10 @@ Room * RoomGenerator::GenerateRoom ( void ) {
     //Generate doors
     std::map<Direction, Point> doors;
     for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ )
-        if ( m_GeneratedRooms <= MAX_ROOMS && RandomNumber ( 0, MAX_ROOMS ) > m_GeneratedRooms && ! doors . count ( DIRECTION_ITERATOR[i] ) ) {
+        if (    m_GeneratedRooms <= MAX_ROOMS 
+             && RandomNumber ( 0, MAX_ROOMS ) > m_GeneratedRooms 
+             && ! doors . count ( DIRECTION_ITERATOR[i] ) ) 
+        {
             m_GeneratedRooms++;
             doors . insert ( { DIRECTION_ITERATOR[i], GetRandomDoor ( rows, cols, DIRECTION_ITERATOR[i] ) } );
         }
