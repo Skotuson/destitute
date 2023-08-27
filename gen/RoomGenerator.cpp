@@ -20,12 +20,11 @@ Room * RoomGenerator::GenerateRoom ( void ) {
     int cols = rows * 2;
 
     //Generate doors
-    std::map<Direction, size_t> doors;
-    for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ ) {
-        
-    }
+    std::map<Direction, Point> doors;
+    for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ )
+        if ( RandomNumber ( 0, 5 ) == 3 )
+            doors . insert ( { DIRECTION_ITERATOR[i], Point ( RandomNumber ( 1, cols - 2 ), RandomNumber ( 1, rows - 2 ) ) } );
     
-
     //Generate layout
     for ( int i = 0; i < rows; i++ ) {
         m_Room . push_back ( std::vector<Tile *> ( ) );
@@ -42,4 +41,8 @@ Room * RoomGenerator::GenerateRoom ( void ) {
     }
 
     return new Room ( m_Room );
+}
+
+Point RoomGenerator::GetRandomDoor ( Direction dir ) {
+    
 }

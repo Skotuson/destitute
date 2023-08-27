@@ -13,9 +13,10 @@ const size_t MAX_ROOM_SIZE = 20,
 
 class RoomGenerator {
     public:
-        static Room * Generate     ( void );
-        static Room * GenerateRoom ( void );
+        static Room * Generate      ( void );
+        static Room * GenerateRoom  ( void );
     private:
+        static Point  GetRandomDoor ( Direction dir );
         inline static size_t m_GeneratedRooms = 0;
 
 };
