@@ -20,6 +20,7 @@ Room * RoomGenerator::GenerateRoom ( void ) {
     int cols = rows * 2;
 
     //Generate doors
+    std::map<Direction, size_t> doors;
     /*implement*/
 
     //Generate layout

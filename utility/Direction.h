@@ -1,11 +1,19 @@
 #ifndef DIRECTION_H
 #define DIRECTION_H
 
+#include <vector>
+
 #include "Point.h"
 
 enum class Direction {
     UP, DOWN, LEFT, RIGHT, NOP
 };
+
+const std::vector<Direction> DIRECTION_ITER = { Direction::UP, 
+                                                Direction::DOWN, 
+                                                Direction::LEFT, 
+                                                Direction::RIGHT, 
+                                                Direction::NOP };
 
 Direction KeyToDirection       ( char      key );
 
