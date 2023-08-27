@@ -12,13 +12,14 @@ using Layout = std::vector<std::vector<Tile *>>;
 
 class Room {
     public:
-                       Room      ( const Layout      & layout = std::vector<std::vector<Tile*>> ( ) );
-                      ~Room      ( void );
-        void           Load      ( const std::string & filename );
-        const Layout & GetLayout ( void );
-        Tile         * GetTile   ( Point               pt );
-        void           EmptyTile ( Point               pt );
-        void           Print     ( void );
+                       Room        ( const Layout      & layout = std::vector<std::vector<Tile*>> ( ) );
+                      ~Room        ( void );
+        void           Load        ( const std::string & filename );
+        const Layout & GetLayout   ( void );
+        Room         * GetAdjacent ( Direction           dir );
+        Tile         * GetTile     ( Point               pt );
+        void           EmptyTile   ( Point               pt );
+        void           Print       ( void );
     private:
         Layout                      m_Layout;
         std::map<Direction, Room *> m_AdjacentRooms;

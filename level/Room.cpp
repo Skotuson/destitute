@@ -34,6 +34,10 @@ const Layout & Room::GetLayout ( void ) {
     return m_Layout;
 }
 
+Room * Room::GetAdjacent ( Direction dir ) {
+    return m_AdjacentRooms[dir];
+}
+
 Tile * Room::GetTile ( Point pt ) {
     return m_Layout[pt['y']][pt['x']];
 }
