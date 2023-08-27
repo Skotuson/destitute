@@ -21,7 +21,10 @@ Room * RoomGenerator::GenerateRoom ( void ) {
 
     //Generate doors
     std::map<Direction, size_t> doors;
-    /*implement*/
+    for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ ) {
+        
+    }
+    
 
     //Generate layout
     for ( int i = 0; i < rows; i++ ) {
