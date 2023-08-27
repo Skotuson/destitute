@@ -11,7 +11,7 @@
 int main ( void ) {
     std::cout << Draw::CLEAR_SCREEN << Draw::RETURN_CURSOR << Draw::HIDE_CURSOR;
     
-    Level * l = new Level ( RoomGenerator::GenerateRoom ( ) );
+    Level * l = new Level ( RoomGenerator::Generate ( ) );
     std::vector<Entity *> v = { new Human ( '&', { 7, 4 } ) };
     
     std::thread input ( Controller::Read );

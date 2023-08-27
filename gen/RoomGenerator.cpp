@@ -7,7 +7,8 @@
 #include "../utility/Utility.h"
 
 Room * RoomGenerator::Generate ( void ) {
-    return nullptr;
+    RoomGenerator::m_GeneratedRooms = 0;
+    return GenerateRoom ( );
 }
 
 Room * RoomGenerator::GenerateRoom ( void ) {
