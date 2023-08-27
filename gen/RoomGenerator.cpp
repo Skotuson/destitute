@@ -7,14 +7,15 @@
 #include "../utility/Utility.h"
 
 Room * RoomGenerator::Generate ( void ) {
+    //Reset generated rooms count
     RoomGenerator::m_GeneratedRooms = 0;
+    //Seed the PRNG
+    srand ( time ( nullptr ) );
     return GenerateRoom ( );
 }
 
 Room * RoomGenerator::GenerateRoom ( void ) {
     Layout m_Room;
-    //Seed the PRNG
-    srand ( time ( nullptr ) );
     //Generate dimensions
     int rows = rand ( ) % MAX_ROOM_SIZE + MIN_ROOM_SIZE;
     int cols = rows * 2;
@@ -22,8 +23,10 @@ Room * RoomGenerator::GenerateRoom ( void ) {
     //Generate doors
     std::map<Direction, Point> doors;
     for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ )
-        if ( RandomNumber ( 0, 5 ) == 3 )
+        if ( RandomNumber ( 0, 5 ) == 3 && m_GeneratedRooms <= MAX_ROOMS ) {
+            m_GeneratedRooms++;
             doors . insert ( { DIRECTION_ITERATOR[i], GetRandomDoor ( rows, cols, DIRECTION_ITERATOR[i] ) } );
+        }
     
     //Generate layout
     for ( int i = 0; i < rows; i++ ) {
