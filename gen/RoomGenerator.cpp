@@ -23,11 +23,18 @@ Room * RoomGenerator::GenerateRoom ( void ) {
     //Generate doors
     std::map<Direction, Point> doors;
     for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ )
-        if ( m_GeneratedRooms <= MAX_ROOMS && RandomNumber ( 0, 5 ) == 3 && ! doors . count ( DIRECTION_ITERATOR[i] ) ) {
+        if ( m_GeneratedRooms <= MAX_ROOMS && RandomNumber ( 0, MAX_ROOMS ) > m_GeneratedRooms && ! doors . count ( DIRECTION_ITERATOR[i] ) ) {
             m_GeneratedRooms++;
             doors . insert ( { DIRECTION_ITERATOR[i], GetRandomDoor ( rows, cols, DIRECTION_ITERATOR[i] ) } );
         }
     
+    //lambda function
+    auto HasDoorsAt = []( const std::map<Direction,Point> & doors, const Point & pt ) {
+        for ( const auto & d : doors )
+            if ( d . second == pt ) return true;
+        return false;
+    };
+
     //Generate layout
     for ( int i = 0; i < rows; i++ ) {
         m_Room . push_back ( std::vector<Tile *> ( ) );
@@ -37,7 +44,10 @@ Room * RoomGenerator::GenerateRoom ( void ) {
                  || j == ( cols - 1 ) || i == ( rows - 1 ) 
                  || RandomNumber ( 1, rows ) == i ) 
             {
-                m_Room[i] . push_back ( TileFactory::Create ( '#' ) );
+                if ( HasDoorsAt ( doors, { j, i } ) ) {
+                    m_Room[i] . push_back ( TileFactory::Create ( '|' ) );
+                }
+                else m_Room[i] . push_back ( TileFactory::Create ( '#' ) );
             }
             else m_Room[i] . push_back ( TileFactory::Create ( ' ' ) );
         }

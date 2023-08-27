@@ -7,9 +7,9 @@
 
 #include "../level/Room.h"
 
-const size_t MAX_ROOM_SIZE = 20,
-             MIN_ROOM_SIZE = 10,
-             MAX_ROOMS     = 4;
+const int MAX_ROOM_SIZE = 20,
+          MIN_ROOM_SIZE = 10,
+          MAX_ROOMS     = 4;
 
 class RoomGenerator {
     public:
@@ -19,7 +19,7 @@ class RoomGenerator {
         static Point  GetRandomDoor ( int       rows, 
                                       int       cols, 
                                       Direction dir );
-        inline static size_t m_GeneratedRooms = 0;
+        inline static int m_GeneratedRooms = 0;
 
 };
 
