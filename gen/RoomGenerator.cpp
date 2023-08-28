@@ -14,6 +14,12 @@ Room * RoomGenerator::Generate ( void ) {
     return GenerateRoom ( );
 }
 
+/* TODO:
+    1) Make sure the wall tiles don't block the door tiles
+    2) Add loot generation
+    3) More interesting "noise"
+*/
+
 Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
     Layout m_Room;
 
