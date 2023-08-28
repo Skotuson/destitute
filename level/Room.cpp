@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cassert>
 
 #include "Room.h"
 #include "../utility/Utility.h"
@@ -41,11 +42,13 @@ void Room::SetLayout ( const Layout & layout ) {
 }
 
 void Room::AddAdjacent ( Room * adj, Direction dir ) {
-    m_AdjacentRooms[dir] = adj;
+    m_AdjacentRooms . insert ( { dir, adj } );
 }
 
 Room * Room::GetAdjacent ( Direction dir ) {
-    return m_AdjacentRooms[dir];
+    auto it = m_AdjacentRooms . find ( dir );
+    assert ( it != m_AdjacentRooms . end ( ) );
+    return it -> second;
 }
 
 Tile * Room::GetTile ( Point pt ) {

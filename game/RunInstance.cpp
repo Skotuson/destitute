@@ -36,9 +36,13 @@ void RunInstance::HandleInteraction ( void ) {
             m_Level -> EmptyTile ( m_Player -> GetCoords ( ) );
             break;
         case Action::DOOR_UP:
+            m_Level -> ChangeRoom ( Direction::UP );
         case Action::DOOR_DOWN:
+            m_Level -> ChangeRoom ( Direction::DOWN );
         case Action::DOOR_LEFT:
+            m_Level -> ChangeRoom ( Direction::LEFT );
         case Action::DOOR_RIGHT:
+            m_Level -> ChangeRoom ( Direction::RIGHT );
         case Action::STOP:
         case Action::NOP:
         default:
