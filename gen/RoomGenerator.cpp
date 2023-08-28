@@ -56,10 +56,9 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
             //Log generated door
             Point randomDoors = GetRandomDoor ( rows, cols, DIRECTION_ITERATOR[i] );
             doors . insert ( { DIRECTION_ITERATOR[i], randomDoors } );
-            //Register neigbouring room
+            //Register neigbouring room ( using side-effect in recursive GenerateRoom call )
             GenerateRoom ( DIRECTION_ITERATOR[i], 
                 { room, DoorTranslate ( randomDoors, DIRECTION_ITERATOR[i] ) } );
-            //room -> AddAdjacent ( { GenerateRoom ( DIRECTION_ITERATOR[i], { room, randomDoors } ), randomDoors }, DIRECTION_ITERATOR[i] );
         }
     
     //Generate layout
