@@ -2,6 +2,7 @@
 #define DIRECTION_H
 
 #include <vector>
+#include <string>
 
 #include "Point.h"
 
@@ -11,13 +12,15 @@ enum class Direction {
 
 const std::vector<Direction> DIRECTION_ITERATOR = { Direction::UP, Direction::DOWN, Direction::LEFT, Direction::RIGHT, Direction::NOP };
 
-Direction KeyToDirection       ( char      key );
+std::string ToString             ( Direction dir );
 
-Direction GetOppositeDirection ( Direction dir );
+Direction   KeyToDirection       ( char      key );
 
-Point     GetDirectionVector   ( Direction dir );
+Direction   GetOppositeDirection ( Direction dir );
 
-Point     Translate            ( Point     pt, 
-                                 Point     translation );
+Point       GetDirectionVector   ( Direction dir );
+
+Point       Translate            ( Point     pt, 
+                                   Point     translation );
 
 #endif

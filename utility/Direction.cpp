@@ -1,5 +1,21 @@
 #include "Direction.h"
 
+std::string ToString ( Direction dir ) {
+    switch ( dir ) {
+        case Direction::UP:
+            return "UP";
+        case Direction::DOWN:
+            return "DOWN";
+        case Direction::LEFT:
+            return "LEFT";
+        case Direction::RIGHT:
+            return "RIGHT";
+        case Direction::NOP:
+        default:
+            return "NOP";
+        }
+}
+
 Direction KeyToDirection ( char key ) {
     switch ( key ) {
         case 'w' : return Direction::UP;
