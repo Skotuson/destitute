@@ -24,6 +24,10 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
         return Direction::NOP;
     };
 
+    auto DoorTranslate = []( Point pt, Direction dir ){
+        return Translate ( pt, GetDirectionVector ( GetOppositeDirection ( dir ) ) );
+    };
+
     //Generate dimensions
     int rows = RandomNumber ( MIN_ROOM_SIZE, MAX_ROOM_SIZE );
     int cols = rows * 2;
@@ -39,7 +43,7 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
         Point randomDoors = GetRandomDoor ( rows, cols, dir );
         doors . insert ( { dir, randomDoors } );
         room -> AddAdjacent ( prevRoom, dir );
-        prevRoom . first -> AddAdjacent ( { room, randomDoors }, entryDir );
+        prevRoom . first -> AddAdjacent ( { room, DoorTranslate ( randomDoors, dir ) }, entryDir );
     }
 
     //Random generate doors
@@ -53,7 +57,8 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
             Point randomDoors = GetRandomDoor ( rows, cols, DIRECTION_ITERATOR[i] );
             doors . insert ( { DIRECTION_ITERATOR[i], randomDoors } );
             //Register neigbouring room
-            GenerateRoom ( DIRECTION_ITERATOR[i], { room, randomDoors } );
+            GenerateRoom ( DIRECTION_ITERATOR[i], 
+                { room, DoorTranslate ( randomDoors, DIRECTION_ITERATOR[i] ) } );
             //room -> AddAdjacent ( { GenerateRoom ( DIRECTION_ITERATOR[i], { room, randomDoors } ), randomDoors }, DIRECTION_ITERATOR[i] );
         }
     
