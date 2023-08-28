@@ -27,6 +27,10 @@ Direction DoorTile::GetDir ( void ) {
     return m_Dir;
 }
 
+void DoorTile::SetOut ( Point out ) {
+    m_Out = out;
+}
+
 void DoorTile::ReverseDir ( void ) {
     m_Dir = GetOppositeDirection ( m_Dir );
 }

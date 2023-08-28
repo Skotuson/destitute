@@ -12,9 +12,11 @@ class DoorTile : public Tile {
                  ~DoorTile   ( void );
         Action    Interact   ( void ) override;
         Direction GetDir     ( void );
+        void      SetOut     ( Point     out );
         void      ReverseDir ( void );
     private:
         Direction m_Dir;
+        Point     m_Out = { 0, 0 };
 
 };
 
