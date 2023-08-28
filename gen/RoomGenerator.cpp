@@ -30,6 +30,7 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
         Point randomDoors = GetRandomDoor ( rows, cols, dir );
         doors . insert ( { dir, randomDoors } );
         room -> AddAdjacent ( prevRoom, dir );
+        prevRoom . first -> AddAdjacent ( { room, randomDoors }, entryDir );
     }
 
     for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ )
@@ -43,7 +44,8 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
             doors . insert ( { DIRECTION_ITERATOR[i], randomDoors } );
             //Register neigbouring room
             //TODO: maybe use side-effect to link the two rooms in the recursive call
-            room -> AddAdjacent ( { GenerateRoom ( DIRECTION_ITERATOR[i], { room, randomDoors } ), randomDoors }, DIRECTION_ITERATOR[i] );
+            GenerateRoom ( DIRECTION_ITERATOR[i], { room, randomDoors } );
+            //room -> AddAdjacent ( { GenerateRoom ( DIRECTION_ITERATOR[i], { room, randomDoors } ), randomDoors }, DIRECTION_ITERATOR[i] );
         }
     
     //Lambda function
