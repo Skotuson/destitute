@@ -36,21 +36,9 @@ void RunInstance::HandleInteraction ( void ) {
             m_Balance += 100;
             m_Level -> EmptyTile ( m_Player -> GetCoords ( ) );
             break;
-        case Action::DOOR_UP:
-            m_Level  -> ChangeRoom ( Direction::UP );
-            m_Player -> SetCoords ( m_Level -> StartPoint ( ) );
-            break;
-        case Action::DOOR_DOWN:
-            m_Level -> ChangeRoom ( Direction::DOWN );
-            m_Player -> SetCoords ( m_Level -> StartPoint ( ) );
-            break;
-        case Action::DOOR_LEFT:
-            m_Level -> ChangeRoom ( Direction::LEFT );
-            m_Player -> SetCoords ( m_Level -> StartPoint ( ) );
-            break;
-        case Action::DOOR_RIGHT:
-            m_Level -> ChangeRoom ( Direction::RIGHT );
-            m_Player -> SetCoords ( m_Level -> StartPoint ( ) );
+        case Action::DOOR:
+            m_Level  -> ChangeRoom ( tile -> GetDir ( ) );
+            m_Player -> SetCoords  ( m_Level -> StartPoint ( ) );
             break;
         case Action::STOP:
         case Action::NOP:
