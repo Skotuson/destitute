@@ -37,12 +37,16 @@ void RunInstance::HandleInteraction ( void ) {
             break;
         case Action::DOOR_UP:
             m_Level -> ChangeRoom ( Direction::UP );
+            break;
         case Action::DOOR_DOWN:
             m_Level -> ChangeRoom ( Direction::DOWN );
+            break;
         case Action::DOOR_LEFT:
             m_Level -> ChangeRoom ( Direction::LEFT );
+            break;
         case Action::DOOR_RIGHT:
             m_Level -> ChangeRoom ( Direction::RIGHT );
+            break;
         case Action::STOP:
         case Action::NOP:
         default:
