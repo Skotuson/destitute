@@ -21,7 +21,6 @@ class Level {
         void           EmptyTile  ( Point   pt );
     private:
         Room * m_Room;
-
 };
 
 #endif

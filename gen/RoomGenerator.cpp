@@ -16,6 +16,14 @@ Room * RoomGenerator::Generate ( void ) {
 
 Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
     Layout m_Room;
+
+    //Lambda function
+    auto GetDoorsDir = []( const std::map<Direction,Point> & doors, const Point & pt ) {
+        for ( const auto & d : doors )
+            if ( d . second == pt ) return d . first;
+        return Direction::NOP;
+    };
+
     //Generate dimensions
     int rows = RandomNumber ( MIN_ROOM_SIZE, MAX_ROOM_SIZE );
     int cols = rows * 2;
@@ -24,6 +32,7 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
 
     //Generate doors        
     std::map<Direction, Point> doors;
+    
     //Create return to previous room
     if ( entryDir != Direction::NOP ) {
         Direction dir = GetOppositeDirection ( entryDir );
@@ -33,6 +42,7 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
         prevRoom . first -> AddAdjacent ( { room, randomDoors }, entryDir );
     }
 
+    //Random generate doors
     for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ )
         if (    m_GeneratedRooms < MAX_ROOMS
              && RandomNumber ( 0, MAX_ROOMS ) >= m_GeneratedRooms 
@@ -48,13 +58,6 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
             //room -> AddAdjacent ( { GenerateRoom ( DIRECTION_ITERATOR[i], { room, randomDoors } ), randomDoors }, DIRECTION_ITERATOR[i] );
         }
     
-    //Lambda function
-    auto GetDoorsDir = []( const std::map<Direction,Point> & doors, const Point & pt ) {
-        for ( const auto & d : doors )
-            if ( d . second == pt ) return d . first;
-        return Direction::NOP;
-    };
-
     //Generate layout
     for ( int i = 0; i < rows; i++ ) {
         m_Room . push_back ( std::vector<Tile *> ( ) );
@@ -64,6 +67,7 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, RoomInfo prevRoom ) {
                  || j == ( cols - 1 ) || i == ( rows - 1 ) 
                  || RandomNumber ( 1, rows ) == i ) 
             {
+                //Check whether there are doors at [j,i] coords
                 Direction dir = GetDoorsDir ( doors, { j, i } );
                 if ( dir == Direction::UP || dir == Direction::DOWN ) 
                     m_Room[i] . push_back ( TileFactory::Create ( '-', dir ) );
