@@ -14,11 +14,12 @@ const int MAX_ROOM_SIZE = 20,
 class RoomGenerator {
     public:
         static Room * Generate      ( void );
-        static Room * GenerateRoom  ( void );
+        static Room * GenerateRoom  ( Direction   entryDir = Direction::NOP,
+                                      Room      * prevRoom = nullptr );
     private:
-        static Point  GetRandomDoor ( int       rows, 
-                                      int       cols, 
-                                      Direction dir );
+        static Point  GetRandomDoor ( int         rows, 
+                                      int         cols, 
+                                      Direction   dir );
         inline static int m_GeneratedRooms = 0;
 
 };

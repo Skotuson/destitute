@@ -14,7 +14,7 @@ Room * RoomGenerator::Generate ( void ) {
     return GenerateRoom ( );
 }
 
-Room * RoomGenerator::GenerateRoom ( void ) {
+Room * RoomGenerator::GenerateRoom ( Direction entryDir, Room * prevRoom ) {
     Layout m_Room;
     //Generate dimensions
     int rows = rand ( ) % MAX_ROOM_SIZE + MIN_ROOM_SIZE;
@@ -22,16 +22,19 @@ Room * RoomGenerator::GenerateRoom ( void ) {
 
     Room * room = new Room ( );
 
-    //Generate doors
+    //Generate doors        
     std::map<Direction, Point> doors;
+    //Create return to previous room
+    if ( entryDir != Direction::NOP )
+        doors . insert ( { entryDir, GetRandomDoor ( rows, cols, entryDir ) } );
     for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ )
-        if (    m_GeneratedRooms <= MAX_ROOMS 
-             && RandomNumber ( 0, MAX_ROOMS ) > m_GeneratedRooms 
+        if (    m_GeneratedRooms < MAX_ROOMS 
+             && RandomNumber ( 0, MAX_ROOMS ) >= m_GeneratedRooms 
              && ! doors . count ( DIRECTION_ITERATOR[i] ) ) 
         {
             m_GeneratedRooms++;
             doors . insert ( { DIRECTION_ITERATOR[i], GetRandomDoor ( rows, cols, DIRECTION_ITERATOR[i] ) } );
-            room -> AddAdjacent ( GenerateRoom ( ), DIRECTION_ITERATOR[i] );
+            room -> AddAdjacent ( GenerateRoom ( GetOppositeDirection ( DIRECTION_ITERATOR[i] ), room ), DIRECTION_ITERATOR[i] );
         }
     
     //lambda function

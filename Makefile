@@ -1,6 +1,6 @@
 CXX      = g++
 LD       = g++
-CXXFLAGS = -g -std=c++17 -Wall -pedantic -lpthread -pthread -fsanitize=address -D_GLIBCXX_DEBUG
+CXXFLAGS = -g -std=c++17 -Wall -pedantic -lpthread -pthread -fsanitize=address
 OUTPUT   = destitute.out
 
 SOURCES = $(wildcard *.cpp */*.cpp)
