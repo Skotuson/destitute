@@ -1,5 +1,21 @@
 #include "Direction.h"
 
+std::string ToString ( Direction dir ) {
+    switch ( dir ) {
+        case Direction::UP:
+            return "UP";
+        case Direction::DOWN:
+            return "DOWN";
+        case Direction::LEFT:
+            return "LEFT";
+        case Direction::RIGHT:
+            return "RIGHT";
+        case Direction::NOP:
+        default:
+            return "NOP";
+        }
+}
+
 Direction KeyToDirection ( char key ) {
     switch ( key ) {
         case 'w' : return Direction::UP;
@@ -8,6 +24,22 @@ Direction KeyToDirection ( char key ) {
         case 'd' : return Direction::RIGHT;
         default  : return Direction::NOP;
     }
+}
+
+Direction GetOppositeDirection ( Direction dir ) {
+    switch ( dir ) {
+        case Direction::UP:
+            return Direction::DOWN;
+        case Direction::DOWN:
+            return Direction::UP;
+        case Direction::LEFT:
+            return Direction::RIGHT;
+        case Direction::RIGHT:
+            return Direction::LEFT;
+        case Direction::NOP:
+        default:
+            return dir;
+        }
 }
 
 Point GetDirectionVector ( Direction dir ) {

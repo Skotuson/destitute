@@ -5,7 +5,8 @@ struct Point {
          Point       ( int   x, 
                        int   y );    
     
-    bool operator == ( Point pt );
+    bool operator <  ( const Point pt ) const;
+    bool operator == ( const Point pt ) const;
     int  operator [] ( char  coord );
 
     int m_X,

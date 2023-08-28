@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cassert>
 
 #include "Room.h"
 #include "../utility/Utility.h"
@@ -13,6 +14,8 @@ Room::~Room ( void ) {
     for ( const auto & row : m_Layout ) 
         for ( const auto & col : row )
             delete col;
+    for ( const auto & room : m_AdjacentRooms )
+        delete room . second;
 }
 
 void Room::Load ( const std::string & filename ) {
@@ -32,6 +35,20 @@ void Room::Load ( const std::string & filename ) {
 
 const Layout & Room::GetLayout ( void ) {
     return m_Layout;
+}
+
+void Room::SetLayout ( const Layout & layout ) {
+    m_Layout = layout;
+}
+
+void Room::AddAdjacent ( Room * adj, Direction dir ) {
+    m_AdjacentRooms . insert ( { dir, adj } );
+}
+
+Room * Room::GetAdjacent ( Direction dir ) {
+    auto it = m_AdjacentRooms . find ( dir );
+    assert ( it != m_AdjacentRooms . end ( ) );
+    return it -> second;
 }
 
 Tile * Room::GetTile ( Point pt ) {
