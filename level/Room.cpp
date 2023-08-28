@@ -14,8 +14,11 @@ Room::~Room ( void ) {
     for ( const auto & row : m_Layout ) 
         for ( const auto & col : row )
             delete col;
-    for ( const auto & room : m_AdjacentRooms )
+    for ( const auto & room : m_AdjacentRooms ) {
+        //Disconnect pointer
+        room . second -> m_AdjacentRooms . erase ( GetOppositeDirection ( room . first ) );
         delete room . second;
+    }
 }
 
 void Room::Load ( const std::string & filename ) {

@@ -30,6 +30,7 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, Room * prevRoom ) {
         doors . insert ( { dir, GetRandomDoor ( rows, cols, dir ) } );
         room -> AddAdjacent ( prevRoom, dir );
     }
+
     for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ )
         if (    m_GeneratedRooms < MAX_ROOMS
              && RandomNumber ( 0, MAX_ROOMS ) >= m_GeneratedRooms 
