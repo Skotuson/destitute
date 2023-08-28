@@ -11,7 +11,7 @@ class DoorTile : public Tile {
                                Direction dir   = Direction::NOP );
                  ~DoorTile   ( void );
         Action    Interact   ( void ) override;
-        Direction GetDir     ( void );
+        Direction GetDir     ( void ) override;
         void      SetOut     ( Point     out );
         void      ReverseDir ( void );
     private:

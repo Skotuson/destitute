@@ -1,10 +1,13 @@
 #ifndef DRAW_H
 #define DRAW_H
 
+#include <string>
+
 using Color = std::string;
 
 class Draw {
     public:
+        static void ClearScreen ( void );
         inline static const std::string RETURN_CURSOR   = "\033[H",
                                         CLEAR_SCREEN    = "\033[2J",
                                         SHOW_CURSOR     = "\033[?25h",

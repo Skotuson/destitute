@@ -46,3 +46,8 @@ char Controller::Get ( void ) {
 size_t Controller::GetBufferSize ( void ) {
     return m_Buffer . size ( );
 }
+
+void Controller::Dump ( void ) {
+    while ( ! m_Buffer . empty ( ) )
+        m_Buffer . pop ( );
+}

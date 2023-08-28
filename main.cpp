@@ -9,7 +9,8 @@
 #include "draw/Draw.h"
 
 int main ( void ) {
-    std::cout << Draw::CLEAR_SCREEN << Draw::RETURN_CURSOR << Draw::HIDE_CURSOR;
+    std::cout << Draw::HIDE_CURSOR;
+    Draw::ClearScreen ( );
     
     Level * l = new Level ( RoomGenerator::Generate ( ) );
     std::vector<Entity *> v = { new Human ( '&', { 7, 4 } ) };
