@@ -18,7 +18,7 @@ const Layout & Level::GetLayout ( void ) {
 }
 
 void Level::ChangeRoom ( Direction dir ) {
-    m_Room = m_Room -> GetAdjacent ( dir );
+    m_Room = m_Room -> GetAdjacent ( dir ) . first;
 }
 
 Tile * Level::GetTile ( Point pt ) {
