@@ -10,17 +10,7 @@ DoorTile::~DoorTile ( void )
 }
 
 Action DoorTile::Interact ( void ) {
-    switch ( m_Dir ) {
-        case Direction::UP:
-            return Action::DOOR_UP;
-        case Direction::DOWN:
-            return Action::DOOR_DOWN;
-        case Direction::LEFT:
-            return Action::DOOR_LEFT;
-        case Direction::RIGHT:
-            return Action::DOOR_RIGHT;
-        default: return Action::NOP;
-    }
+    return Action::DOOR;
 }
 
 Direction DoorTile::GetDir ( void ) {
