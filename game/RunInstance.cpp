@@ -37,6 +37,7 @@ void RunInstance::HandleInteraction ( void ) {
             m_Level -> EmptyTile ( m_Player -> GetCoords ( ) );
             break;
         case Action::DOOR:
+            Draw::ClearScreen ( );
             m_Level  -> ChangeRoom ( tile -> GetDir ( ) );
             m_Player -> SetCoords  ( m_Level -> StartPoint ( ) );
             break;
