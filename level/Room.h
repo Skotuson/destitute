@@ -8,7 +8,11 @@
 #include "../utility/Point.h"
 #include "../utility/Direction.h"
 
-using Layout = std::vector<std::vector<Tile *>>;
+//forward declare for using
+class Room;
+
+using Layout   = std::vector<std::vector<Tile *>>;
+using RoomInfo = std::pair<Room *, Point>;
 
 class Room {
     public:
