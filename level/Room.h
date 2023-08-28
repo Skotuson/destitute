@@ -16,6 +16,7 @@ class Room {
                       ~Room        ( void );
         void           Load        ( const std::string & filename );
         const Layout & GetLayout   ( void );
+        void           SetLayout   ( const Layout      & layout );
         void           AddAdjacent ( Room              * adj,
                                      Direction           dir );
         Room         * GetAdjacent ( Direction           dir );
