@@ -16,8 +16,8 @@ Room::~Room ( void ) {
             delete col;
     for ( const auto & room : m_AdjacentRooms ) {
         //Disconnect pointer
-        room . second -> m_AdjacentRooms . erase ( GetOppositeDirection ( room . first ) );
-        delete room . second;
+        room . second . first -> m_AdjacentRooms . erase ( GetOppositeDirection ( room . first ) );
+        delete room . second . first;
     }
 }
 
@@ -44,11 +44,11 @@ void Room::SetLayout ( const Layout & layout ) {
     m_Layout = layout;
 }
 
-void Room::AddAdjacent ( Room * adj, Direction dir ) {
+void Room::AddAdjacent ( RoomInfo adj, Direction dir ) {
     m_AdjacentRooms . insert ( { dir, adj } );
 }
 
-Room * Room::GetAdjacent ( Direction dir ) {
+RoomInfo Room::GetAdjacent ( Direction dir ) {
     auto it = m_AdjacentRooms . find ( dir );
     assert ( it != m_AdjacentRooms . end ( ) );
     return it -> second;

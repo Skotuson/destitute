@@ -27,8 +27,9 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, Room * prevRoom ) {
     //Create return to previous room
     if ( entryDir != Direction::NOP ) {
         Direction dir = GetOppositeDirection ( entryDir );
-        doors . insert ( { dir, GetRandomDoor ( rows, cols, dir ) } );
-        room -> AddAdjacent ( prevRoom, dir );
+        Point randomDoors = GetRandomDoor ( rows, cols, dir );
+        doors . insert ( { dir, randomDoors } );
+        room -> AddAdjacent ( { prevRoom, randomDoors }, dir );
     }
 
     for ( size_t i = 0; DIRECTION_ITERATOR[i] != Direction::NOP; i++ )
@@ -38,9 +39,10 @@ Room * RoomGenerator::GenerateRoom ( Direction entryDir, Room * prevRoom ) {
         {
             m_GeneratedRooms++;
             //Log generated door
-            doors . insert ( { DIRECTION_ITERATOR[i], GetRandomDoor ( rows, cols, DIRECTION_ITERATOR[i] ) } );
+            Point randomDoors = GetRandomDoor ( rows, cols, DIRECTION_ITERATOR[i] );
+            doors . insert ( { DIRECTION_ITERATOR[i], randomDoors } );
             //Register neigbouring room
-            room -> AddAdjacent ( GenerateRoom ( DIRECTION_ITERATOR[i], room ), DIRECTION_ITERATOR[i] );
+            room -> AddAdjacent ( { GenerateRoom ( DIRECTION_ITERATOR[i], room ), randomDoors }, DIRECTION_ITERATOR[i] );
         }
     
     //Lambda function

@@ -21,15 +21,15 @@ class Room {
         void           Load        ( const std::string & filename );
         const Layout & GetLayout   ( void );
         void           SetLayout   ( const Layout      & layout );
-        void           AddAdjacent ( Room              * adj,
+        void           AddAdjacent ( RoomInfo            adj,
                                      Direction           dir );
-        Room         * GetAdjacent ( Direction           dir );
+        RoomInfo       GetAdjacent ( Direction           dir );
         Tile         * GetTile     ( Point               pt );
         void           EmptyTile   ( Point               pt );
         void           Print       ( void );
     private:
-        Layout                      m_Layout;
-        std::map<Direction, Room *> m_AdjacentRooms;
+        Layout                        m_Layout;
+        std::map<Direction, RoomInfo> m_AdjacentRooms;
     
 };
 
