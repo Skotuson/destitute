@@ -14,6 +14,7 @@ class Entity {
                         
                void           Move        ( Direction      dir );
                Point          GetCoords   ( void );
+               void           SetCoords   ( Point          pt );
                void           Interact    ( Action         action );
                 
                bool           IsAt        ( Point          pt );

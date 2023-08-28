@@ -31,6 +31,10 @@ Point Entity::GetCoords ( void ) {
     return m_Coords;
 }
 
+void Entity::SetCoords ( Point pt ) {
+    m_Coords = pt;
+}
+
 void Entity::Interact ( Action action ) {
     
 }
