@@ -11,6 +11,7 @@ class Controller {
         static char   Peek          ( void );
         static char   Get           ( void );
         static size_t GetBufferSize ( void );
+        static void   Dump          ( void );
     private:
         inline static std::queue<char> m_Buffer;
 };
