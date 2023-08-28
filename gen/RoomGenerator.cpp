@@ -17,7 +17,7 @@ Room * RoomGenerator::Generate ( void ) {
 Room * RoomGenerator::GenerateRoom ( Direction entryDir, Room * prevRoom ) {
     Layout m_Room;
     //Generate dimensions
-    int rows = rand ( ) % MAX_ROOM_SIZE + MIN_ROOM_SIZE;
+    int rows = RandomNumber ( MIN_ROOM_SIZE, MAX_ROOM_SIZE );
     int cols = rows * 2;
 
     Room * room = new Room ( );
