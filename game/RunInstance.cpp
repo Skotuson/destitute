@@ -28,7 +28,8 @@ void RunInstance::Run ( void ) {
 }
 
 void RunInstance::HandleInteraction ( void ) {
-    Action action = m_Level -> GetTile ( m_Player -> GetCoords ( ) ) -> Interact ( );
+    Tile * tile = m_Level -> GetTile ( m_Player -> GetCoords ( ) );
+    Action action = tile -> Interact ( );
     switch ( action ) {
         case Action::LOOT:
             //TODO: Remove hardcoded
@@ -36,16 +37,20 @@ void RunInstance::HandleInteraction ( void ) {
             m_Level -> EmptyTile ( m_Player -> GetCoords ( ) );
             break;
         case Action::DOOR_UP:
-            m_Level -> ChangeRoom ( Direction::UP );
+            m_Level  -> ChangeRoom ( Direction::UP );
+            m_Player -> SetCoords ( m_Level -> StartPoint ( ) );
             break;
         case Action::DOOR_DOWN:
             m_Level -> ChangeRoom ( Direction::DOWN );
+            m_Player -> SetCoords ( m_Level -> StartPoint ( ) );
             break;
         case Action::DOOR_LEFT:
             m_Level -> ChangeRoom ( Direction::LEFT );
+            m_Player -> SetCoords ( m_Level -> StartPoint ( ) );
             break;
         case Action::DOOR_RIGHT:
             m_Level -> ChangeRoom ( Direction::RIGHT );
+            m_Player -> SetCoords ( m_Level -> StartPoint ( ) );
             break;
         case Action::STOP:
         case Action::NOP:

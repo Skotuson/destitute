@@ -17,6 +17,7 @@ class Level {
                       ~Level      ( void );
         const Layout & GetLayout  ( void );
         Tile         * GetTile    ( Point       pt );
+        Point          StartPoint ( void );
         void           ChangeRoom ( Direction   dir );
         void           EmptyTile  ( Point       pt );
     private:
