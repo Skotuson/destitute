@@ -14,7 +14,7 @@ int main ( void ) {
     Draw::ClearScreen ( );
     
     Level * l = new Level ( RoomGenerator::Generate ( ) );
-    std::vector<Entity *> v = { new Human ( '&', { 7, 4 } ), new Projectile ( '*', { 8, 4 } ) };
+    std::vector<Entity *> v = { new Human ( '&', { 7, 4 } ) };
     
     std::thread input ( Controller::Read );
     RunInstance inst ( l, v );

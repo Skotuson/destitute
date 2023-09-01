@@ -27,7 +27,8 @@ class Draw {
                                         COLOR_B_MAGENTA = "\033[0;95m",
                                         COLOR_B_CYAN    = "\033[0;96m",
                                         //8-bit
-                                        COLOR_BROWN   = "\033[38;5;130m";
+                                        COLOR_BROWN     = "\033[38;5;130m",
+                                        COLOR_ORANGE    = "\033[38;5;202m";
 };
 
 #endif
