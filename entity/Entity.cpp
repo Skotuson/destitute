@@ -2,9 +2,10 @@
 
 #include <iostream>
 
-Entity::Entity ( char look, Point coords = { 0, 0 } )
+Entity::Entity ( char look, Point coords, Color color )
 : m_Look   ( look ),
-  m_Coords ( coords )
+  m_Coords ( coords ),
+  m_Color  ( color )
 {}
 
 void Entity::Move ( Direction dir ) {
@@ -44,5 +45,5 @@ bool Entity::IsAt ( Point pt ) {
 }
 
 std::ostream & operator << ( std::ostream & os, const Entity & e ) {
-    return os << e . m_Look;
+    return os << e . m_Color << e . m_Look << Draw::COLOR_DEFAULT;
 }

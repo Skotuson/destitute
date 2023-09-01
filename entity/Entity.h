@@ -3,6 +3,7 @@
 
 #include <ostream>
 
+#include "../draw/Draw.h"
 #include "../game/Action.h"
 #include "../utility/Point.h"
 #include "../utility/Direction.h"
@@ -10,7 +11,8 @@
 class Entity {
     public:
                               Entity      ( char           look,
-                                            Point          coords );
+                                            Point          coords = { 0, 0 },
+                                            Color          color  = Draw::COLOR_DEFAULT );
                         
                void           Move        ( Direction      dir );
                Point          GetCoords   ( void );
@@ -25,6 +27,7 @@ class Entity {
     private:
         char  m_Look;
         Point m_Coords;
+        Color m_Color;
 };
 
 #endif

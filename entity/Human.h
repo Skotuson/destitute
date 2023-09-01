@@ -5,8 +5,9 @@
 
 class Human : public Entity {
     public:
-             Human ( char      look,
-                     Point     coords );
+             Human ( char  look,
+                     Point coords = { 0, 0 },
+                     Color color  = Draw::COLOR_DEFAULT );
 
     private:
 };
