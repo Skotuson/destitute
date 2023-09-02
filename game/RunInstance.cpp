@@ -56,4 +56,6 @@ void RunInstance::HandleMovement ( void ) {
 
 void RunInstance::HandleAction ( void ) {
     Action a = KeyToAction ( Controller::Get ( ) );
+    if ( a == Action::ATTACK )
+        m_Player -> Attack ( );
 }

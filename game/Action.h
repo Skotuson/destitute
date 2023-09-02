@@ -3,11 +3,6 @@
 
 enum class Action { NOP, STOP, LOOT, DOOR, ATTACK };
 
-Action KeyToAction ( char key ) {
-        switch ( key ) {
-            case ' ' : return Action::ATTACK;
-            default  : return Action::NOP;
-    }
-}
+Action KeyToAction ( char key );
 
 #endif
