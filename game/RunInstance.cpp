@@ -22,6 +22,7 @@ void RunInstance::Run ( void ) {
             HandleMovement ( );
         else if ( Controller::GetKeyType ( Controller::Peek ( ) ) == Controller::ControlType::ACTION )
             HandleAction ( );
+        else Controller::Get ( );
     }
 }
 
@@ -54,5 +55,5 @@ void RunInstance::HandleMovement ( void ) {
 }
 
 void RunInstance::HandleAction ( void ) {
-    
+    Action a = KeyToAction ( Controller::Get ( ) );
 }
