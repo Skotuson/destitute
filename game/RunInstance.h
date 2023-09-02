@@ -15,6 +15,7 @@ class RunInstance {
         void Run               ( void );
 
         void HandleInteraction ( void );
+        void HandleMovement    ( void );
     private:
         size_t                  m_Balance = 0;
 

@@ -19,10 +19,7 @@ void RunInstance::Run ( void ) {
         if ( Controller::Peek ( ) ) {
             if ( Controller::Peek ( ) == EXIT_CHAR )
                 break;
-            Direction dir = KeyToDirection ( Controller::Get ( ) );
-            Point futureCoords = Translate ( m_Player -> GetCoords ( ), GetDirectionVector ( dir ) );
-            if ( m_Level -> GetTile ( futureCoords ) -> Interact ( ) != Action::STOP )
-                m_Player -> Move ( dir );
+            HandleMovement ( );
         }
     }
 }
@@ -46,4 +43,11 @@ void RunInstance::HandleInteraction ( void ) {
         default:
             break;
     }
+}
+
+void RunInstance::HandleMovement ( void ) {
+    Direction dir = KeyToDirection ( Controller::Get ( ) );
+    Point futureCoords = Translate ( m_Player -> GetCoords ( ), GetDirectionVector ( dir ) );
+    if ( m_Level -> GetTile ( futureCoords ) -> Interact ( ) != Action::STOP )
+        m_Player -> Move ( dir );
 }
