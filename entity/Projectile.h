@@ -8,6 +8,7 @@ class Projectile : public Entity {
              Projectile ( char  look,
                           Point coords = { 0, 0 },
                           Color Color  = Draw::COLOR_ORANGE );
+        void Attack     ( void ) override;
 
     private:
 };

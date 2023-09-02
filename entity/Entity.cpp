@@ -8,6 +8,10 @@ Entity::Entity ( char look, Point coords, Color color )
   m_Color  ( color )
 {}
 
+Entity::~Entity ( void ) 
+{
+}
+
 void Entity::Move ( Direction dir ) {
     switch ( dir ) {
         case Direction::UP:

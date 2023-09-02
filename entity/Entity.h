@@ -10,18 +10,20 @@
 
 class Entity {
     public:
-                              Entity      ( char           look,
-                                            Point          coords = { 0, 0 },
-                                            Color          color  = Draw::COLOR_DEFAULT );
+                               Entity      ( char           look,
+                                             Point          coords = { 0, 0 },
+                                             Color          color  = Draw::COLOR_DEFAULT ); 
+        virtual               ~Entity      ( void );
                         
-               void           Move        ( Direction      dir );
-               Point          GetCoords   ( void );
-               void           SetCoords   ( Point          pt );
-               void           Interact    ( Action         action );
+                void           Move        ( Direction      dir );
+        virtual void           Attack      ( void ) = 0;
+                Point          GetCoords   ( void );
+                void           SetCoords   ( Point          pt );
+                void           Interact    ( Action         action );
                 
-               bool           IsAt        ( Point          pt );
+                bool           IsAt        ( Point          pt );
 
-        friend std::ostream & operator << ( std::ostream & os,
+        friend  std::ostream & operator << ( std::ostream & os,
                                             const Entity & e );
 
     private:
