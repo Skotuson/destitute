@@ -9,13 +9,12 @@
 class RunInstance {
     public:
              //First entity will be treated as a player
-             RunInstance       ( Level                       * level, 
-                                 const std::vector<Entity *> & entities );
-      
-        void Run               ( void );
-
-        void HandleInteraction ( void );
-        void HandleMovement    ( void );
+             RunInstance           ( Level                       * level, 
+                                     const std::vector<Entity *> & entities );
+        void Run                   ( void );
+        void HandleTileInteraction ( void );
+        void HandleMovement        ( void );
+        void HandleAction          ( void );
     private:
         size_t                  m_Balance = 0;
 

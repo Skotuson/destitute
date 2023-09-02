@@ -12,19 +12,20 @@ RunInstance::RunInstance ( Level * level, const std::vector<Entity *> & entities
 
 void RunInstance::Run ( void ) {
     while ( true ) {
-        HandleInteraction ( );
+        HandleTileInteraction ( );
         std::cout << Draw::RETURN_CURSOR;
         LevelView::View ( *m_Level, m_Entities );
         std::cout << "Balance: " << m_Balance << std::endl;
-        if ( Controller::Peek ( ) ) {
-            if ( Controller::Peek ( ) == EXIT_CHAR )
+        if ( Controller::Peek ( ) == EXIT_CHAR )
                 break;
+        if ( Controller::GetKeyType ( Controller::Peek ( ) ) == Controller::ControlType::MOVEMENT )
             HandleMovement ( );
-        }
+        else if ( Controller::GetKeyType ( Controller::Peek ( ) ) == Controller::ControlType::ACTION )
+            HandleAction ( );
     }
 }
 
-void RunInstance::HandleInteraction ( void ) {
+void RunInstance::HandleTileInteraction ( void ) {
     Tile * tile = m_Level -> GetTile ( m_Player -> GetCoords ( ) );
     Action action = tile -> Interact ( );
     switch ( action ) {
@@ -50,4 +51,8 @@ void RunInstance::HandleMovement ( void ) {
     Point futureCoords = Translate ( m_Player -> GetCoords ( ), GetDirectionVector ( dir ) );
     if ( m_Level -> GetTile ( futureCoords ) -> Interact ( ) != Action::STOP )
         m_Player -> Move ( dir );
+}
+
+void RunInstance::HandleAction ( void ) {
+    
 }

@@ -51,3 +51,16 @@ void Controller::Dump ( void ) {
     while ( ! m_Buffer . empty ( ) )
         m_Buffer . pop ( );
 }
+
+Controller::ControlType Controller::GetKeyType ( char key ) {
+    switch ( key ) {
+        case 'w':
+        case 'a':
+        case 's':
+        case 'd':
+            return ControlType::MOVEMENT;
+        case ' ':
+            return ControlType::ACTION;
+    }
+    return ControlType::NOTYPE;
+}
