@@ -4,13 +4,15 @@
 #include "../game/Action.h"
 
 class Behavior {
-    enum class BehaviorType {
-        PLAYER, AI
-    };
+    public: 
+        enum class BehaviorType {
+            PLAYER, AI
+        };
 
-
-    virtual Action GetNextAction ( void ) = 0;
-
+        virtual Action GetNextAction ( void ) = 0;
+    
+    private:
+        
 };
 
 #endif
