@@ -12,7 +12,6 @@ class Behavior {
         virtual Action GetNextAction ( void ) = 0;
     
     private:
-        
 };
 
 #endif
