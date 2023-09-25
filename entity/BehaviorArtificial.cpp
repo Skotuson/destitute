@@ -1,6 +1,6 @@
 #include "BehaviorArtificial.h"
 
 Action BehaviorArtificial::GetNextAction ( void )  {
-    //TODO: move keyboard handling here
+    //TODO update ai
     return Action::NOP;
 }
