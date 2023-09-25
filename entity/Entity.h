@@ -3,6 +3,7 @@
 
 #include <ostream>
 
+#inclued "Behavior.h"
 #include "../draw/Draw.h"
 #include "../game/Action.h"
 #include "../utility/Point.h"
@@ -27,9 +28,10 @@ class Entity {
                                             const Entity & e );
 
     private:
-        char  m_Look;
-        Point m_Coords;
-        Color m_Color;
+        char       m_Look;
+        Point      m_Coords;
+        Color      m_Color;
+        Behavior * m_Behavior = nullptr;
 };
 
 #endif
