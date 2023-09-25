@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-Entity::Entity ( char look, Point coords, Color color )
+Entity::Entity ( char look, Point coords, Color color, Behavior::BehaviorType behavior )
 : m_Look   ( look ),
   m_Coords ( coords ),
   m_Color  ( color )
