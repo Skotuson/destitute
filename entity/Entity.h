@@ -3,7 +3,7 @@
 
 #include <ostream>
 
-#inclued "Behavior.h"
+#include "Behavior.h"
 #include "../draw/Draw.h"
 #include "../game/Action.h"
 #include "../utility/Point.h"
